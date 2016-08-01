@@ -1,0 +1,16 @@
+﻿
+--Schemas for ETL process
+CREATE SCHEMA EXTR ;
+GO
+CREATE SCHEMA ERP ;
+GO
+CREATE SCHEMA ETL ;
+GO
+
+--Schemas for DataCenter
+CREATE SCHEMA ENG;
+GO
+
+
+
+

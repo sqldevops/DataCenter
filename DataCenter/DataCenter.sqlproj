@@ -57,5 +57,63 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="00_PreDeployment" />
+    <Folder Include="01_Appendix" />
+    <Folder Include="02_Parts" />
+    <Folder Include="99_PostDeployment" />
+    <Folder Include="01_Appendix\02_Functions" />
+    <Folder Include="01_Appendix\01_Procedures" />
+    <Folder Include="01_Appendix\03_Schemas" />
+    <Folder Include="02_Parts\01_EXTR.PART" />
+    <Folder Include="02_Parts\02_ENG.Parts" />
+    <Folder Include="02_Parts\01_EXTR.PART\01_Tables" />
+    <Folder Include="02_Parts\01_EXTR.PART\02_Views" />
+    <Folder Include="02_Parts\01_EXTR.PART\03_Procedures" />
+    <Folder Include="02_Parts\01_EXTR.PART\01_Tables\Triggers" />
+    <Folder Include="02_Parts\02_ENG.Parts\01_Tables" />
+    <Folder Include="99_PostDeployment\02_Jobs" />
+    <Folder Include="99_PostDeployment\01_Config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
+    <Build Include="01_Appendix\02_Functions\ERP.calDateTime.sql" />
+    <Build Include="01_Appendix\03_Schemas\Schemas.sql" />
+    <PostDeploy Include="99_PostDeployment\PostDeployment.sql" />
+    <Build Include="02_Parts\02_ENG.Parts\01_Tables\ENG.Parts.sql" />
+    <Build Include="02_Parts\01_EXTR.PART\01_Tables\Triggers\EXTR.PART_AfterInsertTrigger.sql" />
+    <Build Include="02_Parts\01_EXTR.PART\01_Tables\Triggers\EXTR.PART_InsteadOfTrigger.sql" />
+    <Build Include="02_Parts\01_EXTR.PART\01_Tables\EXTR.PART.sql" />
+    <Build Include="02_Parts\01_EXTR.PART\02_Views\ERP.PART.sql" />
+    <Build Include="02_Parts\01_EXTR.PART\03_Procedures\EXTR.ERP_PART.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="PriorityDatabase">
+      <DefaultValue>cele</DefaultValue>
+      <Value>$(SqlCmdVar__2)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="PriorityServer">
+      <DefaultValue>Priority</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="RedeployJobs">
+      <DefaultValue>YES</DefaultValue>
+      <Value>$(SqlCmdVar__3)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="TargetDatabase">
+      <DefaultValue>DataCenter</DefaultValue>
+      <Value>$(SqlCmdVar__4)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataCenter.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_A.sql" />
+    <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_B.sql" />
+    <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_C.sql" />
+    <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_D.sql" />
+    <None Include="99_PostDeployment\01_Config\JobsEnable.sql" />
+    <None Include="99_PostDeployment\02_Jobs\ExtractionPolicies.sql" />
+    <None Include="99_PostDeployment\02_Jobs\ExtractionTable.sql" />
   </ItemGroup>
 </Project>
