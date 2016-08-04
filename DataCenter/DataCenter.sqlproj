@@ -100,7 +100,7 @@
       <Value>$(SqlCmdVar__2)</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="PriorityServer">
-      <DefaultValue>Priority</DefaultValue>
+      <DefaultValue>APC-DB1\TEST</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="RedeployJobs">
@@ -114,13 +114,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DataCenter.publish.xml" />
+    <None Include="99_PostDeployment\01_Config\JobsEnable.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_A.sql" />
     <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_B.sql" />
     <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_C.sql" />
     <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_D.sql" />
-    <None Include="99_PostDeployment\01_Config\JobsEnable.sql" />
     <None Include="99_PostDeployment\02_Jobs\ExtractionPolicies.sql" />
     <None Include="99_PostDeployment\02_Jobs\ExtractionTable.sql" />
   </ItemGroup>

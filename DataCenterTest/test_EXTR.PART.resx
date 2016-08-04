@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="test_instead_of_trigger_new_part_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+The instead of trigger adds new row to SCD table (EXTR.PART).
+In case where new part is added to Priority.cele.dbo.PART,
+there are no records for this part in EXTR.PART therefore,
+the trigger adds new row with the new data to EXTR.PART.
+*/
+
+BEGIN TRANSACTION TestTransaction
+
+--Tables you have to fill out, if not they will fall in the procedure join : PARTSPEC,PARTDES
+INSERT cele.dbo.PARTSPEC	(
+									PART	,
+									SPEC10	,
+									SPEC19
+								) 
+VALUES	(
+			123456,
+			'worc'	,
+			'מלאי תוצג'	
+		);
+
+
+INSERT cele.dbo.PARTDES	(
+							PART	,
+							EPARTDES
+						)
+VALUES					(
+							123456	,
+							'ABCDEF'
+						);
+
+DECLARE @LastDate INT = ISNULL((SELECT TOP(1) UDATE FROM EXTR.PART ORDER BY UDATE DESC),0);
+
+SET IDENTITY_INSERT cele.dbo.PART ON;
+--Fields you have to fill out in PART table, if not they will fall in the procedure join : T$PROC,FAMILY, PARTSTAT
+INSERT cele.dbo.PART	(
+									PART	,
+									PARTNAME,
+									T$PROC	,
+									TYPE	,
+									FAMILY	,
+									PARTSTAT,
+									UDATE
+								) 
+VALUES	(
+			123456	,
+			'123456',
+			238		,
+			'P'		,
+			246		,
+			-1		,
+			@LastDate+1
+		)
+SET IDENTITY_INSERT cele.dbo.PART OFF;
+
+
+EXECUTE [EXTR].[ERP_PART] ;
+
+--Check if data was inserted into EXTR.PART table
+SELECT * FROM EXTR.PART where PART=123456 ;
+
+ROLLBACK TRANSACTION TestTransaction</value>
+  </data>
+  <data name="test_after_insert_trigger_new_part_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+The after insert trigger updates the target Parts table (ENG.Parts),
+it acts the same for new parts added to priority source table,
+or update of an existing part.
+In both cases a new row will be added to EXTR.PART that will fire the trigger.
+This code tests the effect of source table row insertion to target table.
+*/
+BEGIN TRANSACTION TestTransaction;
+
+--Tables you have to fill out, if not they will fall in the procedure join : PARTSPEC,PARTDES
+INSERT cele.dbo.PARTSPEC	(
+									PART	,
+									SPEC10	,
+									SPEC19
+								) 
+VALUES	(
+			123456,
+			'worc'	,
+			'מלאי תוצג'	
+		);
+
+
+INSERT cele.dbo.PARTDES	(
+							PART	,
+							EPARTDES
+						)
+VALUES					(
+							123456	,
+							'ABCDEF'
+						);
+--EXTR.ERP_PART procedure will detect rows with UDATE value greater than the exsiting
+DECLARE @LastDate INT = ISNULL((SELECT TOP(1) UDATE FROM EXTR.PART ORDER BY UDATE DESC),0);
+
+SET IDENTITY_INSERT cele.dbo.PART ON;
+--Fields you have to fill out in PART table, if not they will fall in the procedure join : T$PROC,FAMILY, PARTSTAT
+INSERT cele.dbo.PART	(
+									PART	,
+									PARTNAME,
+									T$PROC	,
+									TYPE	,
+									FAMILY	,
+									PARTSTAT,
+									UDATE
+								) 
+VALUES	(
+			123456	,
+			'123456',
+			238		,
+			'P'		,
+			246		,
+			-1		,
+			@LastDate+1
+		)
+SET IDENTITY_INSERT cele.dbo.PART OFF;
+
+
+EXECUTE [EXTR].[ERP_PART] ;
+
+--Check if data was inserted into ENG.Parts table
+SELECT * FROM ENG.Parts where PartID=123456 ;
+
+ROLLBACK TRANSACTION TestTransaction;</value>
+  </data>
+  <data name="test_instead_of_trigger_update_part_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+BEGIN TRANSACTION TestTransaction;
+
+DECLARE @LastDate INT = ISNULL((SELECT TOP(1) UDATE FROM EXTR.PART ORDER BY UDATE DESC),0);
+
+UPDATE cele.dbo.PART
+SET T$PROC=238,UDATE=@LastDate+1
+WHERE PART=531;
+
+EXEC  EXTR.ERP_PART;
+
+/*
+Check output from active Parts data (ERP.PART) for specific field update
+because EXTR.PART can hold more than one record for this conditions
+*/
+SELECT * from EXTR.PART  WHERE PART=531 AND RowExpiryDate&gt;GETDATE();
+--select * from ENG.Parts WHERE PartID=531 AND ProcessID=238;
+
+ROLLBACK TRANSACTION TestTransaction;
+</value>
+  </data>
+  <data name="test_after_insert_trigger_update_part_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+The after insert trigger updates the target Parts table (ENG.Parts),
+it acts the same for new parts added to priority source table,
+or update of an existing part.
+In both cases a new row will be added to EXTR.PART that will fire the trigger.
+This code tests the effect of source table row update to target table .
+*/
+BEGIN TRANSACTION TestTransaction;
+
+DECLARE @LastDate INT = ISNULL((SELECT TOP(1) UDATE FROM EXTR.PART ORDER BY UDATE DESC),0);
+
+UPDATE cele.dbo.PART
+SET T$PROC=238,UDATE=@LastDate+1
+WHERE PART=531;
+
+EXEC  EXTR.ERP_PART;
+
+/*
+Check output from active Parts data (ERP.PART) for specific field update
+because EXTR.PART can hold more than one record for this conditions
+*/
+SELECT * from ENG.Parts  WHERE PartID=531 ;
+--select * from ENG.Parts WHERE PartID=531 AND ProcessID=238;
+
+ROLLBACK TRANSACTION TestTransaction;</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>
