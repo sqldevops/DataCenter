@@ -1,4 +1,4 @@
-﻿CREATE NONCLUSTERED INDEX idx_Production_ActISLast ON OPR.ProductionReport (ActIsLast)
+﻿CREATE NONCLUSTERED INDEX idx_Production_ActISLast ON OPR.Production (ActIsLast)
 INCLUDE		(
 				[ProductionRowID],
 				[ProductionFormID],
@@ -6,8 +6,8 @@ INCLUDE		(
 				[WrkOrdID],
 				[PartID],
 				[ActID],
-				[ProductionPassQuant],
-				[ProductionFailQuant],
+				[ProductionPass],
+				[ProductionFail],
 				[ProductionDateID],
 				[ProductionDate],
 				[ProdTime],

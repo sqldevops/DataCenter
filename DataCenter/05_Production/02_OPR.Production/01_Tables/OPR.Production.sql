@@ -1,4 +1,4 @@
-﻿CREATE TABLE OPR.ProductionReport
+﻿CREATE TABLE OPR.Production
 (	
 	 ProductionRowID		INT			NOT NULL
 	,ProductionFormID		INT			NOT NULL
@@ -7,8 +7,8 @@
 	,PartID					INT			NOT NULL
 	,ActID					INT			NOT NULL
 	,ActIsLast				BIT			NOT NULL
-	,ProductionPassQuant	INT			NOT NULL
-	,ProductionFailQuant	INT			NOT NULL
+	,ProductionPass			INT			NOT NULL
+	,ProductionFail			INT			NOT NULL
 	,ProductionDateID		INT			NOT NULL
 	,ProductionDate			DATE		NOT NULL
 	,ProductionStartDate	DATE		

@@ -1,5 +1,4 @@
-﻿
-CREATE FUNCTION ERP.calDateTime (@dateNum INT) 
+﻿CREATE FUNCTION ERP.calDateTime (@dateNum INT) 
 RETURNS DATETIME
 AS 
 BEGIN
