@@ -10,10 +10,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DataCenterTest
 {
     [TestClass()]
-    public class test_EXTR : SqlDatabaseTestClass
+    public class test_EXTR_PART : SqlDatabaseTestClass
     {
 
-        public test_EXTR()
+        public test_EXTR_PART()
         {
             InitializeComponent();
         }
@@ -30,9 +30,9 @@ namespace DataCenterTest
         }
 
         [TestCategory("ETL"), TestMethod()]
-        public void test_instead_of_trigger_new_part()
+        public void test_EXTR_PART_instead_of_trigger_new_part()
         {
-            SqlDatabaseTestActions testActions = this.test_instead_of_trigger_new_partData;
+            SqlDatabaseTestActions testActions = this.test_EXTR_PART_instead_of_trigger_new_partData;
             // Execute the pre-test script
             // 
             System.Diagnostics.Trace.WriteLineIf((testActions.PretestAction != null), "Executing pre-test script...");
@@ -48,9 +48,9 @@ namespace DataCenterTest
         }
         [TestCategory("ETL"), TestMethod()]
         
-        public void test_after_insert_trigger_new_part()
+        public void test_EXTR_PART_after_insert_trigger_new_part()
         {
-            SqlDatabaseTestActions testActions = this.test_after_insert_trigger_new_partData;
+            SqlDatabaseTestActions testActions = this.test_EXTR_PART_after_insert_trigger_new_partData;
             // Execute the pre-test script
             // 
             System.Diagnostics.Trace.WriteLineIf((testActions.PretestAction != null), "Executing pre-test script...");
@@ -72,9 +72,9 @@ namespace DataCenterTest
         }
         [TestCategory("ETL"), TestMethod()]
 
-        public void test_instead_of_trigger_update_part()
+        public void test_EXTR_PART_instead_of_trigger_update_part()
         {
-            SqlDatabaseTestActions testActions = this.test_instead_of_trigger_update_partData;
+            SqlDatabaseTestActions testActions = this.test_EXTR_PART_instead_of_trigger_update_partData;
             // Execute the pre-test script
             // 
             System.Diagnostics.Trace.WriteLineIf((testActions.PretestAction != null), "Executing pre-test script...");
@@ -95,9 +95,9 @@ namespace DataCenterTest
             }
         }
         [TestCategory("ETL"), TestMethod()]
-        public void test_after_insert_trigger_update_part()
+        public void test_EXTR_PART_after_insert_trigger_update_part()
         {
-            SqlDatabaseTestActions testActions = this.test_after_insert_trigger_update_partData;
+            SqlDatabaseTestActions testActions = this.test_EXTR_PART_after_insert_trigger_update_partData;
             // Execute the pre-test script
             // 
             System.Diagnostics.Trace.WriteLineIf((testActions.PretestAction != null), "Executing pre-test script...");
@@ -131,34 +131,38 @@ namespace DataCenterTest
         /// </summary>
         private void InitializeComponent()
         {
-            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction test_instead_of_trigger_new_part_TestAction;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(test_EXTR));
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction test_EXTR_PART_instead_of_trigger_new_part_TestAction;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(test_EXTR_PART));
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.NotEmptyResultSetCondition notEmptyResultSetCondition1;
-            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction test_after_insert_trigger_new_part_TestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction test_EXTR_PART_after_insert_trigger_new_part_TestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.NotEmptyResultSetCondition notEmptyResultSetCondition2;
-            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction test_instead_of_trigger_update_part_TestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction test_EXTR_PART_instead_of_trigger_update_part_TestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition rowCountCondition1;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition scalarValueCondition2;
-            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction test_after_insert_trigger_update_part_TestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction test_EXTR_PART_after_insert_trigger_update_part_TestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition scalarValueCondition1;
-            this.test_instead_of_trigger_new_partData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
-            this.test_after_insert_trigger_new_partData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
-            this.test_instead_of_trigger_update_partData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
-            this.test_after_insert_trigger_update_partData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
-            test_instead_of_trigger_new_part_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction testInitializeAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction testCleanupAction;
+            this.test_EXTR_PART_instead_of_trigger_new_partData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
+            this.test_EXTR_PART_after_insert_trigger_new_partData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
+            this.test_EXTR_PART_instead_of_trigger_update_partData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
+            this.test_EXTR_PART_after_insert_trigger_update_partData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
+            test_EXTR_PART_instead_of_trigger_new_part_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             notEmptyResultSetCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.NotEmptyResultSetCondition();
-            test_after_insert_trigger_new_part_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            test_EXTR_PART_after_insert_trigger_new_part_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             notEmptyResultSetCondition2 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.NotEmptyResultSetCondition();
-            test_instead_of_trigger_update_part_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            test_EXTR_PART_instead_of_trigger_update_part_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             rowCountCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition();
             scalarValueCondition2 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
-            test_after_insert_trigger_update_part_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            test_EXTR_PART_after_insert_trigger_update_part_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             scalarValueCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
+            testInitializeAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            testCleanupAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             // 
-            // test_instead_of_trigger_new_part_TestAction
+            // test_EXTR_PART_instead_of_trigger_new_part_TestAction
             // 
-            test_instead_of_trigger_new_part_TestAction.Conditions.Add(notEmptyResultSetCondition1);
-            resources.ApplyResources(test_instead_of_trigger_new_part_TestAction, "test_instead_of_trigger_new_part_TestAction");
+            test_EXTR_PART_instead_of_trigger_new_part_TestAction.Conditions.Add(notEmptyResultSetCondition1);
+            resources.ApplyResources(test_EXTR_PART_instead_of_trigger_new_part_TestAction, "test_EXTR_PART_instead_of_trigger_new_part_TestAction");
             // 
             // notEmptyResultSetCondition1
             // 
@@ -166,10 +170,10 @@ namespace DataCenterTest
             notEmptyResultSetCondition1.Name = "notEmptyResultSetCondition1";
             notEmptyResultSetCondition1.ResultSet = 1;
             // 
-            // test_after_insert_trigger_new_part_TestAction
+            // test_EXTR_PART_after_insert_trigger_new_part_TestAction
             // 
-            test_after_insert_trigger_new_part_TestAction.Conditions.Add(notEmptyResultSetCondition2);
-            resources.ApplyResources(test_after_insert_trigger_new_part_TestAction, "test_after_insert_trigger_new_part_TestAction");
+            test_EXTR_PART_after_insert_trigger_new_part_TestAction.Conditions.Add(notEmptyResultSetCondition2);
+            resources.ApplyResources(test_EXTR_PART_after_insert_trigger_new_part_TestAction, "test_EXTR_PART_after_insert_trigger_new_part_TestAction");
             // 
             // notEmptyResultSetCondition2
             // 
@@ -177,29 +181,11 @@ namespace DataCenterTest
             notEmptyResultSetCondition2.Name = "notEmptyResultSetCondition2";
             notEmptyResultSetCondition2.ResultSet = 1;
             // 
-            // test_instead_of_trigger_new_partData
+            // test_EXTR_PART_instead_of_trigger_update_part_TestAction
             // 
-            this.test_instead_of_trigger_new_partData.PosttestAction = null;
-            this.test_instead_of_trigger_new_partData.PretestAction = null;
-            this.test_instead_of_trigger_new_partData.TestAction = test_instead_of_trigger_new_part_TestAction;
-            // 
-            // test_after_insert_trigger_new_partData
-            // 
-            this.test_after_insert_trigger_new_partData.PosttestAction = null;
-            this.test_after_insert_trigger_new_partData.PretestAction = null;
-            this.test_after_insert_trigger_new_partData.TestAction = test_after_insert_trigger_new_part_TestAction;
-            // 
-            // test_instead_of_trigger_update_partData
-            // 
-            this.test_instead_of_trigger_update_partData.PosttestAction = null;
-            this.test_instead_of_trigger_update_partData.PretestAction = null;
-            this.test_instead_of_trigger_update_partData.TestAction = test_instead_of_trigger_update_part_TestAction;
-            // 
-            // test_instead_of_trigger_update_part_TestAction
-            // 
-            test_instead_of_trigger_update_part_TestAction.Conditions.Add(rowCountCondition1);
-            test_instead_of_trigger_update_part_TestAction.Conditions.Add(scalarValueCondition2);
-            resources.ApplyResources(test_instead_of_trigger_update_part_TestAction, "test_instead_of_trigger_update_part_TestAction");
+            test_EXTR_PART_instead_of_trigger_update_part_TestAction.Conditions.Add(rowCountCondition1);
+            test_EXTR_PART_instead_of_trigger_update_part_TestAction.Conditions.Add(scalarValueCondition2);
+            resources.ApplyResources(test_EXTR_PART_instead_of_trigger_update_part_TestAction, "test_EXTR_PART_instead_of_trigger_update_part_TestAction");
             // 
             // rowCountCondition1
             // 
@@ -218,16 +204,10 @@ namespace DataCenterTest
             scalarValueCondition2.ResultSet = 1;
             scalarValueCondition2.RowNumber = 1;
             // 
-            // test_after_insert_trigger_update_partData
+            // test_EXTR_PART_after_insert_trigger_update_part_TestAction
             // 
-            this.test_after_insert_trigger_update_partData.PosttestAction = null;
-            this.test_after_insert_trigger_update_partData.PretestAction = null;
-            this.test_after_insert_trigger_update_partData.TestAction = test_after_insert_trigger_update_part_TestAction;
-            // 
-            // test_after_insert_trigger_update_part_TestAction
-            // 
-            test_after_insert_trigger_update_part_TestAction.Conditions.Add(scalarValueCondition1);
-            resources.ApplyResources(test_after_insert_trigger_update_part_TestAction, "test_after_insert_trigger_update_part_TestAction");
+            test_EXTR_PART_after_insert_trigger_update_part_TestAction.Conditions.Add(scalarValueCondition1);
+            resources.ApplyResources(test_EXTR_PART_after_insert_trigger_update_part_TestAction, "test_EXTR_PART_after_insert_trigger_update_part_TestAction");
             // 
             // scalarValueCondition1
             // 
@@ -238,6 +218,43 @@ namespace DataCenterTest
             scalarValueCondition1.NullExpected = false;
             scalarValueCondition1.ResultSet = 1;
             scalarValueCondition1.RowNumber = 1;
+            // 
+            // test_EXTR_PART_instead_of_trigger_new_partData
+            // 
+            this.test_EXTR_PART_instead_of_trigger_new_partData.PosttestAction = null;
+            this.test_EXTR_PART_instead_of_trigger_new_partData.PretestAction = null;
+            this.test_EXTR_PART_instead_of_trigger_new_partData.TestAction = test_EXTR_PART_instead_of_trigger_new_part_TestAction;
+            // 
+            // test_EXTR_PART_after_insert_trigger_new_partData
+            // 
+            this.test_EXTR_PART_after_insert_trigger_new_partData.PosttestAction = null;
+            this.test_EXTR_PART_after_insert_trigger_new_partData.PretestAction = null;
+            this.test_EXTR_PART_after_insert_trigger_new_partData.TestAction = test_EXTR_PART_after_insert_trigger_new_part_TestAction;
+            // 
+            // test_EXTR_PART_instead_of_trigger_update_partData
+            // 
+            this.test_EXTR_PART_instead_of_trigger_update_partData.PosttestAction = null;
+            this.test_EXTR_PART_instead_of_trigger_update_partData.PretestAction = null;
+            this.test_EXTR_PART_instead_of_trigger_update_partData.TestAction = test_EXTR_PART_instead_of_trigger_update_part_TestAction;
+            // 
+            // test_EXTR_PART_after_insert_trigger_update_partData
+            // 
+            this.test_EXTR_PART_after_insert_trigger_update_partData.PosttestAction = null;
+            this.test_EXTR_PART_after_insert_trigger_update_partData.PretestAction = null;
+            this.test_EXTR_PART_after_insert_trigger_update_partData.TestAction = test_EXTR_PART_after_insert_trigger_update_part_TestAction;
+            // 
+            // testInitializeAction
+            // 
+            resources.ApplyResources(testInitializeAction, "testInitializeAction");
+            // 
+            // testCleanupAction
+            // 
+            resources.ApplyResources(testCleanupAction, "testCleanupAction");
+            // 
+            // test_EXTR_PART
+            // 
+            this.TestCleanupAction = testCleanupAction;
+            this.TestInitializeAction = testInitializeAction;
         }
 
         #endregion
@@ -257,9 +274,9 @@ namespace DataCenterTest
         //
         #endregion
 
-        private SqlDatabaseTestActions test_instead_of_trigger_new_partData;
-        private SqlDatabaseTestActions test_after_insert_trigger_new_partData;
-        private SqlDatabaseTestActions test_instead_of_trigger_update_partData;
-        private SqlDatabaseTestActions test_after_insert_trigger_update_partData;
+        private SqlDatabaseTestActions test_EXTR_PART_instead_of_trigger_new_partData;
+        private SqlDatabaseTestActions test_EXTR_PART_after_insert_trigger_new_partData;
+        private SqlDatabaseTestActions test_EXTR_PART_instead_of_trigger_update_partData;
+        private SqlDatabaseTestActions test_EXTR_PART_after_insert_trigger_update_partData;
     }
 }

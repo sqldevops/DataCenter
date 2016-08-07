@@ -56,6 +56,9 @@
     <Compile Include="test_EXTR.PART.cs">
       <SubType>Designer</SubType>
     </Compile>
+    <Compile Include="test_EXTR.SERIAL.cs">
+      <SubType>Designer</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -63,6 +66,9 @@
   <ItemGroup>
     <EmbeddedResource Include="test_EXTR.PART.resx">
       <DependentUpon>test_EXTR.PART.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="test_EXTR.SERIAL.resx">
+      <DependentUpon>test_EXTR.SERIAL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Choose>

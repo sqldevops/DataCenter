@@ -117,135 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="test_EXTR_PART_instead_of_trigger_new_part_TestAction.SqlScript" xml:space="preserve">
-    <value>/*
-The instead of trigger adds new row to SCD table (EXTR.PART).
-In case where new part is added to Priority.cele.dbo.PART,
-there are no records for this part in EXTR.PART therefore,
-the trigger adds new row with the new data to EXTR.PART.
-*/
-
-BEGIN TRANSACTION TestTransaction
-
---Tables you have to fill out, if not they will fall in the procedure join : PARTSPEC,PARTDES
-INSERT cele.dbo.PARTSPEC	(
-									PART	,
-									SPEC10	,
-									SPEC19
-								) 
-VALUES	(
-			123456,
-			'worc'	,
-			'מלאי תוצג'	
-		);
-
-
-INSERT cele.dbo.PARTDES	(
-							PART	,
-							EPARTDES
-						)
-VALUES					(
-							123456	,
-							'ABCDEF'
-						);
-
-DECLARE @LastDate INT = ISNULL((SELECT TOP(1) UDATE FROM EXTR.PART ORDER BY UDATE DESC),0);
-
-SET IDENTITY_INSERT cele.dbo.PART ON;
---Fields you have to fill out in PART table, if not they will fall in the procedure join : T$PROC,FAMILY, PARTSTAT
-INSERT cele.dbo.PART	(
-									PART	,
-									PARTNAME,
-									T$PROC	,
-									TYPE	,
-									FAMILY	,
-									PARTSTAT,
-									UDATE
-								) 
-VALUES	(
-			123456	,
-			'123456',
-			238		,
-			'P'		,
-			246		,
-			-1		,
-			@LastDate+1
-		)
-SET IDENTITY_INSERT cele.dbo.PART OFF;
-
-
-EXECUTE [EXTR].[ERP_PART] ;
-
---Check if data was inserted into EXTR.PART table
-SELECT * FROM EXTR.PART where PART=123456 ;
-
-ROLLBACK TRANSACTION TestTransaction</value>
-  </data>
-  <data name="test_EXTR_PART_after_insert_trigger_new_part_TestAction.SqlScript" xml:space="preserve">
-    <value>/*
-The after insert trigger updates the target Parts table (ENG.Parts),
-it acts the same for new parts added to priority source table,
-or update of an existing part.
-In both cases a new row will be added to EXTR.PART that will fire the trigger.
-This code tests the effect of source table row insertion to target table.
-*/
-BEGIN TRANSACTION TestTransaction;
-
---Tables you have to fill out, if not they will fall in the procedure join : PARTSPEC,PARTDES
-INSERT cele.dbo.PARTSPEC	(
-									PART	,
-									SPEC10	,
-									SPEC19
-								) 
-VALUES	(
-			123456,
-			'worc'	,
-			'מלאי תוצג'	
-		);
-
-
-INSERT cele.dbo.PARTDES	(
-							PART	,
-							EPARTDES
-						)
-VALUES					(
-							123456	,
-							'ABCDEF'
-						);
---EXTR.ERP_PART procedure will detect rows with UDATE value greater than the exsiting
-DECLARE @LastDate INT = ISNULL((SELECT TOP(1) UDATE FROM EXTR.PART ORDER BY UDATE DESC),0);
-
-SET IDENTITY_INSERT cele.dbo.PART ON;
---Fields you have to fill out in PART table, if not they will fall in the procedure join : T$PROC,FAMILY, PARTSTAT
-INSERT cele.dbo.PART	(
-									PART	,
-									PARTNAME,
-									T$PROC	,
-									TYPE	,
-									FAMILY	,
-									PARTSTAT,
-									UDATE
-								) 
-VALUES	(
-			123456	,
-			'123456',
-			238		,
-			'P'		,
-			246		,
-			-1		,
-			@LastDate+1
-		)
-SET IDENTITY_INSERT cele.dbo.PART OFF;
-
-
-EXECUTE [EXTR].[ERP_PART] ;
-
---Check if data was inserted into ENG.Parts table
-SELECT * FROM ENG.Parts where PartID=123456 ;
-
-ROLLBACK TRANSACTION TestTransaction;</value>
-  </data>
-  <data name="test_EXTR_PART_instead_of_trigger_update_part_TestAction.SqlScript" xml:space="preserve">
+  <data name="test_EXTR_SERIAL_after_insert_trigger_new_part_TestAction.SqlScript" xml:space="preserve">
     <value>/*
 Add SQL statements here to exercise the database object 
 that you want to test.
@@ -257,51 +129,47 @@ In the lower pane, you can add test conditions that verify
 whether the results of your SQL statements match what 
 you expect.
 */
-
 BEGIN TRANSACTION TestTransaction;
 
-DECLARE @LastDate INT = ISNULL((SELECT TOP(1) UDATE FROM EXTR.PART ORDER BY UDATE DESC),0);
+--Tables you have to fill out, if not they will fall in the procedure join : SERIALA
+INSERT cele.dbo.SERIALA	(
+									SERIAL		,
+									SERIALSTATUS
+								) 
+VALUES	(
+			1234567,
+			2
+		);
 
-UPDATE cele.dbo.PART
-SET T$PROC=238,UDATE=@LastDate+1
-WHERE PART=531;
 
-EXEC  EXTR.ERP_PART;
+--EXTR.ERP_PART procedure will detect rows with UDATE value greater than the exsiting
+DECLARE @LastDate INT = ISNULL((SELECT TOP(1) UDATE FROM EXTR.SERIAL ORDER BY UDATE DESC),0);
 
-/*
-Check output from active Parts data (ERP.PART) for specific field update
-because EXTR.PART can hold more than one record for this conditions
-*/
-SELECT * from EXTR.PART  WHERE PART=531 AND RowExpiryDate&gt;GETDATE();
---select * from ENG.Parts WHERE PartID=531 AND ProcessID=238;
+SET IDENTITY_INSERT cele.dbo.SERIAL ON;
+--Fields you have to fill out in PART table, if not they will fall in the procedure join : T$PROC,FAMILY, PARTSTAT
+INSERT cele.dbo.SERIAL	(
+									SERIAL		,
+									SERIALNAME	,
+									PART		,
+									QUANT		,
+									PSDATE		,
+									UDATE
+								) 
+VALUES	(
+			1234567	,
+			'1234567',
+			531		,
+			1000	,
+			15194880,
+			@LastDate+1
+		)
+SET IDENTITY_INSERT cele.dbo.SERIAL OFF;
 
-ROLLBACK TRANSACTION TestTransaction;
-</value>
-  </data>
-  <data name="test_EXTR_PART_after_insert_trigger_update_part_TestAction.SqlScript" xml:space="preserve">
-    <value>/*
-The after insert trigger updates the target Parts table (ENG.Parts),
-it acts the same for new parts added to priority source table,
-or update of an existing part.
-In both cases a new row will be added to EXTR.PART that will fire the trigger.
-This code tests the effect of source table row update to target table .
-*/
-BEGIN TRANSACTION TestTransaction;
 
-DECLARE @LastDate INT = ISNULL((SELECT TOP(1) UDATE FROM EXTR.PART ORDER BY UDATE DESC),0);
+EXECUTE [EXTR].[ERP_SERIAL] ;
 
-UPDATE cele.dbo.PART
-SET T$PROC=238,UDATE=@LastDate+1
-WHERE PART=531;
-
-EXEC  EXTR.ERP_PART;
-
-/*
-Check output from active Parts data (ERP.PART) for specific field update
-because EXTR.PART can hold more than one record for this conditions
-*/
-SELECT * from ENG.Parts  WHERE PartID=531 ;
---select * from ENG.Parts WHERE PartID=531 AND ProcessID=238;
+--Check if data was inserted into ENG.Parts table
+SELECT * FROM OPR.WorkOrders where WrkOrdID=1234567 ;
 
 ROLLBACK TRANSACTION TestTransaction;</value>
   </data>
@@ -314,9 +182,63 @@ In the lower pane, you can add test conditions that verify
 whether the results of your SQL statements match what 
 you expect.
 */
-TRUNCATE TABLE EXTR.PART;
-TRUNCATE TABLE ENG.Parts;
+TRUNCATE TABLE EXTR.SERIAL;
+TRUNCATE TABLE OPR.WorkOrders;
 EXECUTE [EXTR].[ERP_SERIAL] ;</value>
+  </data>
+  <data name="test_EXTR_SERIAL_insted_of_trigger_new_part_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+BEGIN TRANSACTION TestTransaction;
+
+--Tables you have to fill out, if not they will fall in the procedure join : SERIALA
+INSERT cele.dbo.SERIALA	(
+									SERIAL		,
+									SERIALSTATUS
+								) 
+VALUES	(
+			1234567,
+			2
+		);
+
+
+--EXTR.ERP_PART procedure will detect rows with UDATE value greater than the exsiting
+DECLARE @LastDate INT = ISNULL((SELECT TOP(1) UDATE FROM EXTR.SERIAL ORDER BY UDATE DESC),0);
+
+SET IDENTITY_INSERT cele.dbo.SERIAL ON;
+--Fields you have to fill out in PART table, if not they will fall in the procedure join : T$PROC,FAMILY, PARTSTAT
+INSERT cele.dbo.SERIAL	(
+									SERIAL		,
+									SERIALNAME	,
+									PART		,
+									QUANT		,
+									UDATE
+								) 
+VALUES	(
+			1234567	,
+			'1234567',
+			531		,
+			1000	,
+			@LastDate+1
+		)
+SET IDENTITY_INSERT cele.dbo.SERIAL OFF;
+
+
+EXECUTE [EXTR].[ERP_SERIAL] ;
+
+--Check if data was inserted into ENG.Parts table
+SELECT * FROM EXTR.SERIAL where SERIAL=1234567 ;
+
+ROLLBACK TRANSACTION TestTransaction;</value>
   </data>
   <data name="testCleanupAction.SqlScript" xml:space="preserve">
     <value>/*
@@ -327,8 +249,76 @@ In the lower pane, you can add test conditions that verify
 whether the results of your SQL statements match what 
 you expect.
 */
-TRUNCATE TABLE EXTR.PART;
-TRUNCATE TABLE ENG.Parts;</value>
+TRUNCATE TABLE EXTR.SERIAL;
+TRUNCATE TABLE OPR.WorkOrders;</value>
+  </data>
+  <data name="test_EXTR_SERIAL_after_insert_trigger_update_part_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+BEGIN TRANSACTION TestTransaction;
+--Choose one active work order from SERIAL table.
+DECLARE @serial INT=(SELECT TOP(1) SERIAL FROM cele.dbo.SERIAL WHERE PART=531 AND CLOSED&lt;&gt;'C' ORDER BY SERIAL DESC );
+DECLARE @quant INT =(SELECT QUANT FROM cele.dbo.SERIAL WHERE SERIAL=@serial);
+DECLARE @LastDate INT = ISNULL((SELECT TOP(1) UDATE FROM EXTR.SERIAL ORDER BY UDATE DESC),0);
+
+UPDATE cele.dbo.SERIAL
+SET QUANT=@quant + 1000000,UDATE=@LastDate+1
+WHERE SERIAL=@serial;
+
+EXEC  EXTR.ERP_SERIAL;
+
+/*
+Check output from active Parts data (ERP.PART) for specific field update
+because EXTR.PART can hold more than one record for this conditions
+*/
+SELECT * from OPR.WorkOrders  WHERE WrkOrdID=@serial ;
+--select * from ENG.Parts WHERE PartID=531 AND ProcessID=238;
+
+ROLLBACK TRANSACTION TestTransaction;</value>
+  </data>
+  <data name="test_EXTR_SERIAL_instead_of_trigger_update_part_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+BEGIN TRANSACTION TestTransaction;
+
+DECLARE @serial INT=(SELECT TOP(1) SERIAL FROM cele.dbo.SERIAL WHERE PART=531 AND CLOSED&lt;&gt;'C' ORDER BY SERIAL DESC );
+DECLARE @quant INT =(SELECT QUANT FROM cele.dbo.SERIAL WHERE SERIAL=@serial);
+DECLARE @LastDate INT = ISNULL((SELECT TOP(1) UDATE FROM EXTR.SERIAL ORDER BY UDATE DESC),0);
+
+UPDATE cele.dbo.SERIAL
+SET QUANT=@quant + 1000000,UDATE=@LastDate+1
+WHERE SERIAL=@serial;
+
+EXEC  EXTR.ERP_SERIAL;
+
+
+
+/*
+Check output from active work orders data for specific field update
+because EXTR.SERIAL can hold more than one record for this conditions
+*/
+SELECT * from EXTR.SERIAL  WHERE SERIAL=@serial  AND RowExpiryDate&gt;GETDATE();
+
+
+ROLLBACK TRANSACTION TestTransaction;</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
