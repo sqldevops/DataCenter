@@ -188,4 +188,6 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 
-DeployScripts/
+DeployScripts/*
+*.ps1
+DeployScript.ps1

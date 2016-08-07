@@ -12,7 +12,7 @@
 #-------------------------------------------------------------------------------------#
 # 2. Set develop server objects
 #-------------------------------------------------------------------------------------#
-.\PriorityLinkedServer.ps1
+#.\PriorityLinkedServer.ps1
 
 #-------------------------------------------------------------------------------------#
 # 3. Deploy DataCenter project on develop server
@@ -26,3 +26,7 @@
 
 
 #-------------------------------------------------------------------------------------#
+# 5. Test deployment
+#-------------------------------------------------------------------------------------#
+if (Test-Path $test_results_path) {Remove-Item $test_results_path};
+mstest /testcontainer:$test_path /category:$test_category /resultsfile:"$test_results_path";
