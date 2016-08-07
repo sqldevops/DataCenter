@@ -1,75 +1,43 @@
-﻿#-----------------------------------------------------------------------------------------------#
-#Root 
-#-----------------------------------------------------------------------------------------------#
-$root = "D:\SourceCode\SSDT";
-#-----------------------------------------------------------------------------------------------#
+﻿#Develop environment Variables
+#$source_server="IT-DEV-01\DataCenter"
+#$source_database_ETL="ETL"
+#$source_database_DataCenter="DataCenter"
 
 
-#-----------------------------------------------------------------------------------------------#
-#Data source for ETL process : 
-#-----------------------------------------------------------------------------------------------#
-$priority_server="APC-DB1\TEST" # For testing environment use Priority.cele database copy 
-#$priority_server = "Priority"  # For develop environment use Priority linked server
+
+#Data source for ETL process : for testing environment use copy on dev machine
+$priority_server="Priority"
 $priority_database="cele"
-#-----------------------------------------------------------------------------------------------#
+
+$proj_folder="D:\SourceCode\SSDT"
+
+#Projects names
+$proj_name="DataCenter";
+
+#Projects paths
+$path = "$proj_folder\$proj_name\$proj_name\"
 
 
-#-----------------------------------------------------------------------------------------------#
-#Solution Variables
-#-----------------------------------------------------------------------------------------------#
-$sln_name="DataCenter";
-$sln_folder="$root\" + $sln_name;
-$sln_path="$sln_folder\$sln_name" + ".sln";
-#-----------------------------------------------------------------------------------------------#
+#project full path
+$proj=$path + $proj_name + ".sqlproj"
 
 
-#-----------------------------------------------------------------------------------------------#
-#Project Variables
-#-----------------------------------------------------------------------------------------------#
-$proj_name=$sln_name;
-$proj_folder="$sln_folder\" + $proj_name;
-$proj_path = "$sln_folder\$sln_name\$proj_name\$proj_name" + ".sqlproj";
-#-----------------------------------------------------------------------------------------------#
+#Dacpac files full path
+$path_bin=$path +"bin\Debug\"
+$dacpac_name="$proj_name.dacpac"
+$dacpac=$path_bin+$dacpac_name
 
 
-#-----------------------------------------------------------------------------------------------#
-#Deployment Variables
-#-----------------------------------------------------------------------------------------------#
-#DACPAC
-$dacpac_name="$sln_name.dacpac"
-$dacpac_folder="$proj_folder\" +"bin\Debug\"
-$dacpac_path=$dacpac_folder+$dacpac_name
-#Deployment Profile
+#Publish profiles path
 $profile_name = "$proj_name.publish.xml"
-$profile_path = "$proj_folder\" + $profile_name
-#-----------------------------------------------------------------------------------------------#
+$profile = $path + $profile_name
 
+#Develop target server 
+$target_server="APC-DB1\DEV"
 
-#-----------------------------------------------------------------------------------------------#
-#Testing Variables
-#-----------------------------------------------------------------------------------------------#
-#Testing project
-$test_name=$proj_name + "Test";
-$test_folder="$sln_folder\" + $test_name;
-$test_path="$test_folder\bin\Debug\" + "$test_name.dll";
-#Test categiry
-$test_category="ETL";
-#Test results
-$test_results_name="TestResults.trx";
-$test_results_folder="$sln_folder\TestResults";
-$test_results_path="$test_results_folder\" +$test_results_name ;
-#-----------------------------------------------------------------------------------------------#
-
-
-#-----------------------------------------------------------------------------------------------#
-#Target
-#-----------------------------------------------------------------------------------------------#
-#Target server : Testing
-$target_server="APC-DB1\TEST" # Testing environment
-#$Target_Server="APC-DB1\DEV" # Develop environment
-#Target database : name = project name _ semantic version number _ git branch name
+#Target database on target server name is : project name _ semantic version number _ git branch name
 $SemVer=gitversion | ConvertFrom-JSON |select SemVer
 $Branch=gitversion | ConvertFrom-JSON |select BranchName
-$sln_name + '_' + $SemVer.SemVer + '_' + $Branch.BranchName
+'DataCenter' + '_' + $SemVer.SemVer + '_' + $Branch.BranchName
 $target_database=$proj_name + '_' + $SemVer.SemVer + '_' + $Branch.BranchName;
-#-----------------------------------------------------------------------------------------------#
+

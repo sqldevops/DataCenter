@@ -1,9 +1,6 @@
-Testing environment:
-
-Deployment variables location :DeployScripts\DeployVariables.ps1 
-
-Deployment variables values:
-Priority server is set to local data source copy: $priority_server="APC-DB1\TEST"
-Target deployment server is set to :$target_server="APC-DB1\TEST" 
-
-No linked servers
+ This sql server databse project objectives are :
+ - Running ETL processes against Priority database.
+ - Managing data warehouse and naming convention for data coming from different sources (Planning database and Priority).
+ 
+ This projects dependencies are :
+ - PriorityWrapper : Priority link server work around.
