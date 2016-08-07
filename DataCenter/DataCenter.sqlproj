@@ -73,8 +73,14 @@
     <Folder Include="02_Parts\02_ENG.Parts\01_Tables" />
     <Folder Include="99_PostDeployment\02_Jobs" />
     <Folder Include="99_PostDeployment\01_Config" />
-
-
+    <Folder Include="04_WorkOrders" />
+    <Folder Include="04_WorkOrders\01_EXTR.SERIAL" />
+    <Folder Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables" />
+    <Folder Include="04_WorkOrders\01_EXTR.SERIAL\02_Views" />
+    <Folder Include="04_WorkOrders\01_EXTR.SERIAL\03_Procedures" />
+    <Folder Include="04_WorkOrders\02_OPR.WorkOrders" />
+    <Folder Include="04_WorkOrders\02_OPR.WorkOrders\01_Tables" />
+    <Folder Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Triggers" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
@@ -118,6 +124,13 @@
     <None Include="99_PostDeployment\02_Jobs\ExtractionPolicies.sql" />
     <None Include="99_PostDeployment\02_Jobs\ExtractionTable.sql" />
   </ItemGroup>
-
-
+  <ItemGroup>
+    <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Triggers\EXTR.SERIAL_AfterInsertTrigger.sql" />
+    <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Triggers\EXTR.SERIAL_InsteadOfTrigger.sql" />
+    <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\EXTR.SERIAL.sql" />
+    <Build Include="04_WorkOrders\02_OPR.WorkOrders\01_Tables\OPR.WorkOrders.sql" />
+    <Build Include="01_Appendix\02_Functions\ERP.IntToDate.sql" />
+    <Build Include="04_WorkOrders\01_EXTR.SERIAL\02_Views\ERP.SERIAL.sql" />
+    <Build Include="04_WorkOrders\01_EXTR.SERIAL\03_Procedures\EXTR.ERP_SERIAL.sql" />
+  </ItemGroup>
 </Project>
