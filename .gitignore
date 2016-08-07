@@ -190,3 +190,4 @@ ModelManifest.xml
 
 DeployScripts/*
 *.ps1
+DeployScript.ps1
