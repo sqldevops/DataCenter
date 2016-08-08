@@ -4,3 +4,4 @@ obj/
 DeployScripts/
 *.sln
 *.sqlproj
+*.dbmdl
