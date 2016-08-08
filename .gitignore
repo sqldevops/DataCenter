@@ -1,4 +1,5 @@
-
+bin/
+obj/
 DeployScripts/
 *.sln
 *.sqlproj
