@@ -1,7 +1,11 @@
 .vs/
 bin/
 obj/
-DeployScripts/
+
 
 *.dbmdl
 *.publish.xml
+*.sqlproj.user
+
+#
+DeployScripts/
