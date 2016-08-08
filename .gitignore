@@ -2,6 +2,6 @@
 bin/
 obj/
 DeployScripts/
-*.sln
-*.sqlproj
+
 *.dbmdl
+*.publish.xml
