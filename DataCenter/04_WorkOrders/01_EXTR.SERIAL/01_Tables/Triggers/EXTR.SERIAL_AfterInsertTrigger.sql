@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿CREATE TRIGGER TRNS_SERIAL_Trigger ON EXTR.SERIAL 
-=======
-﻿CREATE TRIGGER EXTR.SERIAL_AfterInsertTrigger ON EXTR.SERIAL 
->>>>>>> feature/production
+﻿CREATE TRIGGER [EXTR].[SERIAL_AfterInsertTrigger] ON EXTR.SERIAL 
 AFTER INSERT
 AS
 MERGE OPR.WorkOrders AS Target
