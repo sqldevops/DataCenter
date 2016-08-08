@@ -50,13 +50,13 @@ $profile_path = "$proj_folder\" + $profile_name
 #-----------------------------------------------------------------------------------------------#
 #Testing project
 $test_name=$proj_name + "Test";
-$test_folder="$sln_folder\" + $test_name;
+$test_folder="$root\" + $test_name;
 $test_path="$test_folder\bin\Debug\" + "$test_name.dll";
 #Test categiry
 $test_category="ETL";
 #Test results
 $test_results_name="TestResults.trx";
-$test_results_folder="$sln_folder\TestResults";
+$test_results_folder="$test_folder\TestResults";
 $test_results_path="$test_results_folder\" +$test_results_name ;
 #-----------------------------------------------------------------------------------------------#
 
