@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DataCenter", "DataCenter\DataCenter.sqlproj", "{23F204CD-62D8-49CD-BFF1-9E989195EC80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCenterTest", "..\DataCenterTest\DataCenterTest.csproj", "{7D0C61D0-EB4C-4613-B689-DB3BABCD2001}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,10 +17,6 @@ Global
 		{23F204CD-62D8-49CD-BFF1-9E989195EC80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23F204CD-62D8-49CD-BFF1-9E989195EC80}.Release|Any CPU.Build.0 = Release|Any CPU
 		{23F204CD-62D8-49CD-BFF1-9E989195EC80}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{7D0C61D0-EB4C-4613-B689-DB3BABCD2001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D0C61D0-EB4C-4613-B689-DB3BABCD2001}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D0C61D0-EB4C-4613-B689-DB3BABCD2001}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D0C61D0-EB4C-4613-B689-DB3BABCD2001}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

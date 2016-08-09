@@ -144,19 +144,19 @@
     <None Include="99_PostDeployment\02_Jobs\ExtractionTable.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Triggers\EXTR.SERIAL_AfterInsertTrigger.sql" />
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Triggers\EXTR.SERIAL_InsteadOfTrigger.sql" />
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\EXTR.SERIAL.sql" />
     <Build Include="04_WorkOrders\02_OPR.WorkOrders\01_Tables\OPR.WorkOrders.sql" />
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\02_Views\ERP.SERIAL.sql" />
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\03_Procedures\EXTR.ERP_SERIAL.sql" />
     <Build Include="05_Production\01_EXTR.ALINE\01_Tables\Triggers\EXTR.ALINE_AfterInsertTrigger.sql" />
-    <Build Include="01_Appendix\02_Functions\ERP.IntToDate.sql" />
     <Build Include="01_Appendix\02_Functions\ERP.IntToDateTime.sql" />
     <Build Include="05_Production\01_EXTR.ALINE\03_Procedures\EXTR.ERP_ALINE.sql" />
     <Build Include="05_Production\01_EXTR.ALINE\02_Views\ERP.ALINE.sql" />
     <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionWrkOrd.sql" />
     <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionPart.sql" />
     <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionAct.sql" />
+    <Build Include="01_Appendix\02_Functions\ERP.IntToDate.sql" />
+    <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Triggers\EXTR.SERIAL_AfterInsertTrigger.sql" />
   </ItemGroup>
 </Project>
