@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DataCenter.publish.xml" />
+    <None Include="99_PostDeployment\02_Jobs\ETL.ExtractPolicy.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_A.sql" />

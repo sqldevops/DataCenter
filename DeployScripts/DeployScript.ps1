@@ -5,9 +5,9 @@
 . .\DeployVariables.ps1
 
 #-------------------------------------------------------------------------------------#
-# 1. Build : 
+# 1. Build DataCenter project : creates dacpac file, next to be deployed 
 #-------------------------------------------------------------------------------------#
-#msbuild $proj /p:VisualStudioVersion=14.0
+. .\BuildProj.ps1
 
 #-------------------------------------------------------------------------------------#
 # 2. Set develop server objects
@@ -15,18 +15,22 @@
 #.\PriorityLinkedServer.ps1
 
 #-------------------------------------------------------------------------------------#
-# 3. Deploy DataCenter project on develop server
+# 4. Deploy DataCenter project on develop server
 #-------------------------------------------------------------------------------------#
-.\DeployProj.ps1
+. .\DeployProj.ps1
 
 #-------------------------------------------------------------------------------------#
-# 4. Post deployment commands
+# 6. Post test deployments
+#-------------------------------------------------------------------------------------#
+# Populate tested tables by executing relevant jobs
+. .\PostTestProj.ps1
+
+#-------------------------------------------------------------------------------------#
+# 7. Test deployment
+#-------------------------------------------------------------------------------------#
+. .\TestProj.ps1
+
+#-------------------------------------------------------------------------------------#
+# 8. Post deployment commands
 #-------------------------------------------------------------------------------------#
 # Bulk Data transfer 
-
-
-#-------------------------------------------------------------------------------------#
-# 5. Test deployment
-#-------------------------------------------------------------------------------------#
-if (Test-Path $test_results_path) {Remove-Item $test_results_path};
-mstest /testcontainer:$test_path /category:$test_category /resultsfile:"$test_results_path";

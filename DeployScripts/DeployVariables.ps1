@@ -28,7 +28,7 @@ $sln_path="$sln_folder\$sln_name" + ".sln";
 #-----------------------------------------------------------------------------------------------#
 $proj_name=$sln_name;
 $proj_folder="$sln_folder\" + $proj_name;
-$proj_path = "$sln_folder\$sln_name\$proj_name\$proj_name" + ".sqlproj";
+$proj_path = "$proj_folder\$proj_name" + ".sqlproj";
 #-----------------------------------------------------------------------------------------------#
 
 

@@ -19,5 +19,7 @@ GO
 -------------------------------------------------------------------------------------------
 
 INSERT INTO ETL.ExtractionTables VALUES
- ('Priority','cele'		,'dbo'	,'PART'			,'Engineering'	,'IncrementalAcc'	,'EXTR.ERP_PART'		,'A',1);
+ ('Priority','cele'		,'dbo'	,'PART'			,'Engineering'	,'IncrementalAcc'	,'EXTR.ERP_PART'		,'A',1)
+,('Priority','cele'		,'dbo'	,'ALINE'		,'Operations'	,'Incremental'		,'EXTR.ERP_ALINE'		,'A',1)
+,('Priority','cele'		,'dbo'	,'SERIAL'		,'Operations'	,'IncrementalAcc'	,'EXTR.ERP_SERIAL'		,'A',1);
  GO
