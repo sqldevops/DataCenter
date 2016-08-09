@@ -20,6 +20,9 @@ $node4.InnerText="Data Source=$target_server;Integrated Security=True;Persist Se
 #Save changes in deployment file
 $xml.Save($profile);
 
+
+#-----------------------------------------------------------------------------------------------#
+
 #Deploy
 $depoy_exp="sqlpackage /Profile:""$profile"" /SourceFile:""$dacpac"" /Action:Publish"
 Invoke-Expression $depoy_exp

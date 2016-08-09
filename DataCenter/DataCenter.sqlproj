@@ -81,6 +81,17 @@
     <Folder Include="04_WorkOrders\02_OPR.WorkOrders" />
     <Folder Include="04_WorkOrders\02_OPR.WorkOrders\01_Tables" />
     <Folder Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Triggers" />
+    <Folder Include="05_Production" />
+    <Folder Include="05_Production\01_EXTR.ALINE" />
+    <Folder Include="05_Production\01_EXTR.ALINE\01_Tables" />
+    <Folder Include="05_Production\01_EXTR.ALINE\01_Tables\Indexes" />
+    <Folder Include="05_Production\01_EXTR.ALINE\01_Tables\Triggers" />
+    <Folder Include="05_Production\02_OPR.Production\" />
+    <Folder Include="05_Production\02_OPR.Production\01_Tables\" />
+    <Folder Include="05_Production\02_OPR.Production\01_Tables\Indexes\" />
+    <Folder Include="05_Production\01_EXTR.ALINE\02_Views" />
+    <Folder Include="05_Production\01_EXTR.ALINE\03_Procedures" />
+    <Folder Include="05_Production\02_OPR.Production\02_Views" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
@@ -93,6 +104,13 @@
     <Build Include="02_Parts\01_EXTR.PART\01_Tables\EXTR.PART.sql" />
     <Build Include="02_Parts\01_EXTR.PART\02_Views\ERP.PART.sql" />
     <Build Include="02_Parts\01_EXTR.PART\03_Procedures\EXTR.ERP_PART.sql" />
+    <Build Include="05_Production\02_OPR.Production\01_Tables\Indexes\idx_Production_ActIsLast.sql" />
+    <Build Include="05_Production\02_OPR.Production\01_Tables\OPR.Production.sql" />
+    <Build Include="05_Production\01_EXTR.ALINE\01_Tables\Triggers\EXTR.ALINE_InsteadOfTrigger.sql" />
+    <Build Include="05_Production\01_EXTR.ALINE\01_Tables\Indexes\idx_ALINE_AL.sql" />
+    <Build Include="05_Production\01_EXTR.ALINE\01_Tables\Indexes\idx_ALINE_ExpiryDate.sql" />
+    <Build Include="05_Production\01_EXTR.ALINE\01_Tables\Indexes\idx_ALINE_UDATE.sql" />
+    <Build Include="05_Production\01_EXTR.ALINE\01_Tables\EXTR.ALINE.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="PriorityDatabase">
@@ -114,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DataCenter.publish.xml" />
+    <None Include="99_PostDeployment\02_Jobs\ETL.ExtractPolicy.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_A.sql" />
@@ -129,8 +148,15 @@
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Triggers\EXTR.SERIAL_InsteadOfTrigger.sql" />
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\EXTR.SERIAL.sql" />
     <Build Include="04_WorkOrders\02_OPR.WorkOrders\01_Tables\OPR.WorkOrders.sql" />
-    <Build Include="01_Appendix\02_Functions\ERP.IntToDate.sql" />
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\02_Views\ERP.SERIAL.sql" />
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\03_Procedures\EXTR.ERP_SERIAL.sql" />
+    <Build Include="05_Production\01_EXTR.ALINE\01_Tables\Triggers\EXTR.ALINE_AfterInsertTrigger.sql" />
+    <Build Include="01_Appendix\02_Functions\ERP.IntToDate.sql" />
+    <Build Include="01_Appendix\02_Functions\ERP.IntToDateTime.sql" />
+    <Build Include="05_Production\01_EXTR.ALINE\03_Procedures\EXTR.ERP_ALINE.sql" />
+    <Build Include="05_Production\01_EXTR.ALINE\02_Views\ERP.ALINE.sql" />
+    <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionWrkOrd.sql" />
+    <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionPart.sql" />
+    <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionAct.sql" />
   </ItemGroup>
 </Project>

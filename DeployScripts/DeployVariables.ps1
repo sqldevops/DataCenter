@@ -18,6 +18,14 @@ $proj_name="DataCenter";
 $path = "$proj_folder\$proj_name\$proj_name\"
 
 
+#-----------------------------------------------------------------------------------------------#
+#Project Variables
+#-----------------------------------------------------------------------------------------------#
+$proj_name=$sln_name;
+$proj_folder="$sln_folder\" + $proj_name;
+$proj_path = "$proj_folder\$proj_name" + ".sqlproj";
+#-----------------------------------------------------------------------------------------------#
+
 #project full path
 $proj=$path + $proj_name + ".sqlproj"
 
@@ -26,6 +34,7 @@ $proj=$path + $proj_name + ".sqlproj"
 $path_bin=$path +"bin\Debug\"
 $dacpac_name="$proj_name.dacpac"
 $dacpac=$path_bin+$dacpac_name
+
 
 
 #Publish profiles path
