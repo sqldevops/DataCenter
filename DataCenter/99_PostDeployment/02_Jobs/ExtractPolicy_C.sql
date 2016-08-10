@@ -38,7 +38,7 @@ BEGIN;
      * Add the job
      */
 	 EXEC  msdb.dbo.sp_add_job @job_name=N'ETL_EXRT_Policy_C', 
-		@enabled=1, 
+		@enabled=0, 
 		@notify_level_eventlog=0, 
 		@notify_level_email=0, 
 		@notify_level_netsend=0, 

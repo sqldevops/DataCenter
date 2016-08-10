@@ -1,1 +1,0 @@
-﻿msbuild $proj_path /t:build /p:VisualStudioVersion=14.0
