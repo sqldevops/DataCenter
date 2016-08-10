@@ -92,6 +92,17 @@
     <Folder Include="05_Production\01_EXTR.ALINE\02_Views" />
     <Folder Include="05_Production\01_EXTR.ALINE\03_Procedures" />
     <Folder Include="05_Production\02_OPR.Production\02_Views" />
+    <Folder Include="06_Clients" />
+    <Folder Include="06_Clients\01_EXTR.CUSTUMERS" />
+    <Folder Include="06_Clients\02_MKT.Clients" />
+    <Folder Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables" />
+    <Folder Include="06_Clients\01_EXTR.CUSTUMERS\02_Views" />
+    <Folder Include="06_Clients\01_EXTR.CUSTUMERS\03_Procedures" />
+    <Folder Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables\Triggers" />
+    <Folder Include="06_Clients\02_MKT.Clients\01_Tables" />
+    <Folder Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables\Indexes" />
+    <Folder Include="02_Parts\01_EXTR.PART\01_Tables\Indexes" />
+    <Folder Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Indexes" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
@@ -157,5 +168,15 @@
     <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionWrkOrd.sql" />
     <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionPart.sql" />
     <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionAct.sql" />
+    <Build Include="06_Clients\02_MKT.Clients\01_Tables\MKT.Clients.sql" />
+    <Build Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables\EXTR.CUSTOMERS.sql" />
+    <Build Include="02_Parts\01_EXTR.PART\01_Tables\Indexes\idx_PART_UDATE.sql" />
+    <Build Include="02_Parts\01_EXTR.PART\01_Tables\Indexes\idx_PART_ExpiryDate.sql" />
+    <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Indexes\idx_SERIAL_UDATE.sql" />
+    <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Indexes\idx_SERIAL_ExpiryDate.sql" />
+    <Build Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables\Triggers\EXTR.CUSTOMERS_InsteadOfTrigger.sql" />
+    <Build Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables\Triggers\EXTR.CUSTOMERS_AfterInsertTrigger.sql" />
+    <Build Include="06_Clients\01_EXTR.CUSTUMERS\02_Views\ERP.CUSTOMERS.sql" />
+    <Build Include="06_Clients\01_EXTR.CUSTUMERS\03_Procedures\EXTR.ERP_CUSTOMERS.sql" />
   </ItemGroup>
 </Project>
