@@ -2,33 +2,48 @@
 #-------------------------------------------------------------------------------------#
 # 0. Deployment variables setting
 #-------------------------------------------------------------------------------------#
-. .\DeployVariables.ps1
+. .\00_DeployVariables.ps1
 
 #-------------------------------------------------------------------------------------#
 # 1. Build DataCenter project : creates dacpac file, next to be deployed 
 #-------------------------------------------------------------------------------------#
-. .\BuildProj.ps1
+. .\01_BuildProj.ps1
 
 #-------------------------------------------------------------------------------------#
 # 2. Set develop server objects
 #-------------------------------------------------------------------------------------#
-#.\PriorityLinkedServer.ps1
+#.\02_PriorityLinkedServer.ps1
 
 #-------------------------------------------------------------------------------------#
-# 4. Deploy DataCenter project on develop server
+# 3. Deploy DataCenter project on develop server
 #-------------------------------------------------------------------------------------#
-. .\DeployProj.ps1
+. .\03_DeployProj.ps1
 
+#-----------------------------------------------------------------------------------------------#
+# 4. Enable extraction jobs
+#-----------------------------------------------------------------------------------------------#
+. .\04_EnableJob.ps1
 #-------------------------------------------------------------------------------------#
-# 6. Post test deployments
+# 5. Pre test deployments
 #-------------------------------------------------------------------------------------#
 # Populate tested tables by executing relevant jobs
-. .\PostTestProj.ps1
+#. .\05_PreTestProj.ps1
+#do not start testing until job finishes executing and all data is loaded
+
+#do {
+#    $SQLSvrObj=New-Object Microsoft.SqlServer.Management.Smo.Server $target_server;
+#    $SQLSvrObj.ConnectionContext.ConnectTimeout=21600;
+#    $SQLSvrObj.ConnectionContext.StatementTimeout=0;
+#    $job=$SQLSvrObj.JobServer.Jobs| where {$_.name -eq "ETL_EXRT_Policy_A"}
+#}
+#until ($job.CurrentRunStatus -eq "Idle")
 
 #-------------------------------------------------------------------------------------#
-# 7. Test deployment
+# 6. Test deployment
 #-------------------------------------------------------------------------------------#
-. .\TestProj.ps1
+
+
+. .\06_TestProj.ps1
 
 #-------------------------------------------------------------------------------------#
 # 8. Post deployment commands
