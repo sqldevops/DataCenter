@@ -1,7 +1,7 @@
 .vs/
 bin/
 obj/
-
+bcp/
 
 *.dbmdl
 *.publish.xml
