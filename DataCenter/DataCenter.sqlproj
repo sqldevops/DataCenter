@@ -103,6 +103,13 @@
     <Folder Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables\Indexes" />
     <Folder Include="02_Parts\01_EXTR.PART\01_Tables\Indexes" />
     <Folder Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Indexes" />
+    <Folder Include="03_PartAct" />
+    <Folder Include="03_PartAct\01_TRNS.PartAct" />
+    <Folder Include="03_PartAct\01_TRNS.PartAct\01_Tables" />
+    <Folder Include="03_PartAct\01_TRNS.PartAct\02_Views" />
+    <Folder Include="03_PartAct\01_TRNS.PartAct\03_Procedures" />
+    <Folder Include="03_PartAct\01_TRNS.PartAct\01_Tables\Indexes" />
+    <Folder Include="03_PartAct\01_TRNS.PartAct\01_Tables\Triggers" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
@@ -179,5 +186,14 @@
     <Build Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables\Triggers\EXTR.CUSTOMERS_AfterInsertTrigger.sql" />
     <Build Include="06_Clients\01_EXTR.CUSTUMERS\02_Views\ERP.CUSTOMERS.sql" />
     <Build Include="06_Clients\01_EXTR.CUSTUMERS\03_Procedures\EXTR.ERP_CUSTOMERS.sql" />
+    <Build Include="03_PartAct\01_TRNS.PartAct\01_Tables\TRNS.PartAct.sql" />
+    <Build Include="03_PartAct\01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartAct.sql" />
+    <Build Include="03_PartAct\01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartPreAct.sql" />
+    <Build Include="03_PartAct\01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartIsRoot.sql" />
+    <Build Include="03_PartAct\01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartActPos.sql" />
+    <Build Include="03_PartAct\01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartActIsLast.sql" />
+    <Build Include="03_PartAct\01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartActBin.sql" />
+    <None Include="03_PartAct\01_TRNS.PartAct\02_Views\TRNS.PartActStdTime.sql" />
+    <Build Include="03_PartAct\01_TRNS.PartAct\02_Views\Script1.sql" />
   </ItemGroup>
 </Project>
