@@ -120,6 +120,13 @@
     <Folder Include="03_PartAct\03_TRNS.PartActHierarchy\02_Views" />
     <Folder Include="03_PartAct\03_TRNS.PartActHierarchy\03_Procedures" />
     <Folder Include="03_PartAct\03_TRNS.PartActHierarchy\01_Tables\Indexes" />
+    <Folder Include="03_PartAct\04_TRNS.PartActAssembly" />
+    <Folder Include="03_PartAct\04_TRNS.PartActAssembly\01_Tables" />
+    <Folder Include="03_PartAct\04_TRNS.PartActAssembly\01_Tables\Indexes" />
+    <Folder Include="03_PartAct\04_TRNS.PartActAssembly\03_Procedures" />
+    <Folder Include="03_PartAct\05_TRNS.AssemblyHierarchy" />
+    <Folder Include="03_PartAct\05_TRNS.AssemblyHierarchy\01_Tables" />
+    <Folder Include="03_PartAct\05_TRNS.AssemblyHierarchy\03_Procedures" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
@@ -212,5 +219,11 @@
     <Build Include="03_PartAct\03_TRNS.PartActHierarchy\01_Tables\Indexes\idx_PartActBinRoot.sql" />
     <Build Include="03_PartAct\03_TRNS.PartActHierarchy\01_Tables\Indexes\idx_SonPartActID.sql" />
     <Build Include="03_PartAct\03_TRNS.PartActHierarchy\03_Procedures\TRNS.ERP_PartActHierarchy.sql" />
+    <Build Include="03_PartAct\03_TRNS.PartActHierarchy\02_Views\TRNS.PartActHierarchyView.sql" />
+    <Build Include="03_PartAct\04_TRNS.PartActAssembly\01_Tables\Indexes\idx_PartActAssembly.sql" />
+    <Build Include="03_PartAct\04_TRNS.PartActAssembly\01_Tables\TRNS.PartActAssembly.sql" />
+    <Build Include="03_PartAct\04_TRNS.PartActAssembly\03_Procedures\TRNS.ERP_PartActAssembly.sql" />
+    <Build Include="03_PartAct\05_TRNS.AssemblyHierarchy\01_Tables\TRNS.AssemblyHierarchy.sql" />
+    <Build Include="03_PartAct\05_TRNS.AssemblyHierarchy\03_Procedures\TRNS.ERP_AssemblyHierarchy.sql" />
   </ItemGroup>
 </Project>
