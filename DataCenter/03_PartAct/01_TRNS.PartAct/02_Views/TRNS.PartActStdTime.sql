@@ -1,8 +1,14 @@
-﻿
-CREATE VIEW TRNS.PartActStdTime
+﻿CREATE FUNCTION TRNS.PartActStdTime()
+RETURNS @view TABLE
+(
+	PartID			INT	,
+	ActID			INT	,
+	stdTimeEmployee	FLOAT	,
+	stdTimeMachine	FLOAT
+)
 AS
-
-
+BEGIN
+INSERT @view
 SELECT	 P.PART			AS PartID
 		,P.ACT			AS ActID
 		,ISNULL(P.E,0)	AS stdTimeEmployee
@@ -23,4 +29,6 @@ PIVOT
 	SUM (SIZE)
 	FOR PARAM IN (E,T)
 ) AS P;
+RETURN;
+END;
 GO
