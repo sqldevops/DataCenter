@@ -8,8 +8,8 @@ $root = "D:\SourceCode\SSDT";
 #-----------------------------------------------------------------------------------------------#
 #Data source for ETL process : 
 #-----------------------------------------------------------------------------------------------#
-#$priority_server="APC-DB1\TEST" # For testing environment use Priority.cele database copy 
-$priority_server = "Priority"  # For develop environment use Priority linked server
+$priority_server="APC-DB1\TEST" # For testing environment use Priority.cele database copy 
+#$priority_server = "Priority"  # For develop environment use Priority linked server
 $priority_database="cele"
 #-----------------------------------------------------------------------------------------------#
 
@@ -50,8 +50,8 @@ $profile_path = "$proj_folder\" + $profile_name
 #Target
 #-----------------------------------------------------------------------------------------------#
 #Target server : Testing
-#$target_server="APC-DB1\TEST" # Testing environment
-$Target_Server="APC-DB1\DEV" # Develop environment
+$target_server="APC-DB1\TEST" # Testing environment
+#$Target_Server="APC-DB1\DEV" # Develop environment
 #Target database : name = project name _ semantic version number _ git branch name
 $SemVer=gitversion | ConvertFrom-JSON |select SemVer
 $Branch=gitversion | ConvertFrom-JSON |select BranchName
