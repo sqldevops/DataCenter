@@ -1,8 +1,8 @@
 ﻿CREATE FUNCTION TRNS.PartActStdTime()
 RETURNS @view TABLE
 (
-	PartID			INT	,
-	ActID			INT	,
+	PartID			INT		,
+	ActID			INT		,
 	stdTimeEmployee	FLOAT	,
 	stdTimeMachine	FLOAT
 )
