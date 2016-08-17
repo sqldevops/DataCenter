@@ -14,7 +14,7 @@
     </RootPath>
     <RootNamespace>DataCenter</RootNamespace>
     <AssemblyName>DataCenter</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1037,CS</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -23,6 +23,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Hebrew_BIN</DefaultCollation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -193,7 +194,7 @@
     <Build Include="03_PartAct\01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartActPos.sql" />
     <Build Include="03_PartAct\01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartActIsLast.sql" />
     <Build Include="03_PartAct\01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartActBin.sql" />
-    <None Include="03_PartAct\01_TRNS.PartAct\02_Views\TRNS.PartActStdTime.sql" />
-    <Build Include="03_PartAct\01_TRNS.PartAct\02_Views\Script1.sql" />
+    <Build Include="03_PartAct\01_TRNS.PartAct\02_Views\TRNS.PartActStdTime.sql" />
+    <Build Include="03_PartAct\01_TRNS.PartAct\02_Views\TRNS.PartTopBom.sql" />
   </ItemGroup>
 </Project>
