@@ -196,5 +196,6 @@
     <Build Include="03_PartAct\01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartActBin.sql" />
     <Build Include="03_PartAct\01_TRNS.PartAct\02_Views\TRNS.PartActStdTime.sql" />
     <Build Include="03_PartAct\01_TRNS.PartAct\02_Views\TRNS.PartTopBom.sql" />
+    <Build Include="03_PartAct\01_TRNS.PartAct\03_Procedures\TRNS.ERP_PartAct.sql" />
   </ItemGroup>
 </Project>
