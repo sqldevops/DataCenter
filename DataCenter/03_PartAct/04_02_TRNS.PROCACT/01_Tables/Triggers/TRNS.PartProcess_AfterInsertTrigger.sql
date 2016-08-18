@@ -1,0 +1,6 @@
+﻿CREATE TRIGGER TRNS.PartProcess_AfterInsertTrigger ON TRNS.PartProcess
+AFTER INSERT
+AS
+BEGIN
+	EXEC TRNS.PROCACT_ActPos;
+END;
