@@ -3,6 +3,15 @@
 INSTEAD OF INSERT
 AS
 BEGIN
+	TRUNCATE TABLE TRNS.PartProcess;
+	--Save all changes in Process of existing part or of a new part
+	DECLARE @Processes	TABLE	(PART INT, T$PROC INT);
+
+	INSERT INTO @Processes (PART,T$PROC)
+	SELECT DISTINCT T1.PART,T1.T$PROC
+	FROM inserted		AS T1
+	LEFT JOIN ERP.PART	AS T2 ON T2.PART=T1.PART
+	WHERE T1.T$PROC<>ISNULL(T2.T$PROC,0);
 
 	--Updating expiry date for existing rows before inserting new ones:
 	WITH cte AS
@@ -72,5 +81,8 @@ BEGIN
 			,T1.SPEC19
 	FROM inserted	 AS T1;
 
-
+	--Populate TRNS.PartProcess trigger table
+	INSERT INTO TRNS.PartProcess(PART,T$PROC,Source)
+	SELECT DISTINCT T1.PART,T1.T$PROC,'PART'
+	FROM @Processes		AS T1;
 END;

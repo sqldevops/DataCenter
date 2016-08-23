@@ -20,6 +20,13 @@ GO
 
 INSERT INTO ETL.ExtractionTables VALUES
  ('Priority','cele'		,'dbo'	,'PART'			,'Engineering'	,'IncrementalAcc'	,'EXTR.ERP_PART'		,'A',1)
+--,('Priority','cele'		,'dbo'	,'PROCACT'		,'Engineering'	,'Incremental'		,'EXTR.ERP_PROCACT'		,'E',1)
+--,('Priority','cele'		,'dbo'	,'ORDERITEMS'	,'Marketing'	,'IncrementalAcc'	,'EXTR.ERP_ORDERITEMS'	,'A',1)
 ,('Priority','cele'		,'dbo'	,'ALINE'		,'Operations'	,'Incremental'		,'EXTR.ERP_ALINE'		,'A',1)
-,('Priority','cele'		,'dbo'	,'SERIAL'		,'Operations'	,'IncrementalAcc'	,'EXTR.ERP_SERIAL'		,'A',1);
+--,('Priority','cele'		,'dbo'	,'SERACT'		,'Operations'	,'Incremental'		,'EXTR.ERP_SERACT'		,'E',1)
+,('Priority','cele'		,'dbo'	,'SERIAL'		,'Operations'	,'IncrementalAcc'	,'EXTR.ERP_SERIAL'		,'A',1)
+--,('Priority','system'	,'dbo'	,'USERSB'		,'General'		,'Bulk'				,'EXTR.ERP_USERSB'		,'E',1)
+--,('Priority','cele'		,'dbo'	,'WAREHOUSES'	,'Logistics'	,'Bulk'				,'EXTR.ERP_WAREHOUSES'	,'E',1)
+,('Priority','cele'		,'dbo'	,'CUSTOMERS'	,'Marketing'	,'Bulk'				,'EXTR.ERP_CUSTOMERS'	,'A',1)
+--,('Priority','cele'		,'dbo'	,'PARTARC'		,'Engineering'	,'Bulk'				,'ETL.ENG_Bom'			,'A',1);
  GO

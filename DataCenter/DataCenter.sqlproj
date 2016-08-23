@@ -8,13 +8,13 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{23f204cd-62d8-49cd-bff1-9e989195ec80}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
     <RootNamespace>DataCenter</RootNamespace>
     <AssemblyName>DataCenter</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1037,CS</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -23,6 +23,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Hebrew_BIN</DefaultCollation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -92,6 +93,56 @@
     <Folder Include="05_Production\01_EXTR.ALINE\02_Views" />
     <Folder Include="05_Production\01_EXTR.ALINE\03_Procedures" />
     <Folder Include="05_Production\02_OPR.Production\02_Views" />
+    <Folder Include="06_Clients" />
+    <Folder Include="06_Clients\01_EXTR.CUSTUMERS" />
+    <Folder Include="06_Clients\02_MKT.Clients" />
+    <Folder Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables" />
+    <Folder Include="06_Clients\01_EXTR.CUSTUMERS\02_Views" />
+    <Folder Include="06_Clients\01_EXTR.CUSTUMERS\03_Procedures" />
+    <Folder Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables\Triggers" />
+    <Folder Include="06_Clients\02_MKT.Clients\01_Tables" />
+    <Folder Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables\Indexes" />
+    <Folder Include="02_Parts\01_EXTR.PART\01_Tables\Indexes" />
+    <Folder Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Indexes" />
+    <Folder Include="03_PartAct" />
+    <Folder Include="03_PartAct\01_01_TRNS.PartAct" />
+    <Folder Include="03_PartAct\01_01_TRNS.PartAct\01_Tables" />
+    <Folder Include="03_PartAct\01_01_TRNS.PartAct\02_Views" />
+    <Folder Include="03_PartAct\01_01_TRNS.PartAct\03_Procedures" />
+    <Folder Include="03_PartAct\01_01_TRNS.PartAct\01_Tables\Triggers" />
+    <Folder Include="03_PartAct\01_01_TRNS.PartAct\01_Tables\Indexes" />
+    <Folder Include="03_PartAct\02_01_TRNS.PartActAdjacency" />
+    <Folder Include="03_PartAct\02_01_TRNS.PartActAdjacency\01_Tables" />
+    <Folder Include="03_PartAct\02_01_TRNS.PartActAdjacency\02_Views" />
+    <Folder Include="03_PartAct\02_01_TRNS.PartActAdjacency\03_Procedures" />
+    <Folder Include="03_PartAct\03_01_TRNS.PartActHierarchy" />
+    <Folder Include="03_PartAct\03_01_TRNS.PartActHierarchy\01_Tables" />
+    <Folder Include="03_PartAct\03_01_TRNS.PartActHierarchy\02_Views" />
+    <Folder Include="03_PartAct\03_01_TRNS.PartActHierarchy\03_Procedures" />
+    <Folder Include="03_PartAct\03_01_TRNS.PartActHierarchy\01_Tables\Indexes" />
+    <Folder Include="03_PartAct\01_02_ENG.PartAct" />
+    <Folder Include="03_PartAct\01_02_ENG.PartAct\01_Tables" />
+    <Folder Include="03_PartAct\01_02_ENG.PartAct\03_Procedures" />
+    <Folder Include="03_PartAct\02_02_ENG.PartActAdjacency" />
+    <Folder Include="03_PartAct\02_02_ENG.PartActAdjacency\01_Tables" />
+    <Folder Include="03_PartAct\02_02_ENG.PartActAdjacency\03_Procedures" />
+    <Folder Include="03_PartAct\01_02_ENG.PartAct\01_Tables\Indexes" />
+    <Folder Include="03_PartAct\02_02_ENG.PartActAdjacency\02_Views" />
+    <Folder Include="03_PartAct\04_01_EXTR.PROCACT" />
+    <Folder Include="03_PartAct\03_02_ENG.PartActHierarchy" />
+    <Folder Include="03_PartAct\03_02_ENG.PartActHierarchy\01_Tables" />
+    <Folder Include="03_PartAct\03_02_ENG.PartActHierarchy\02_Views" />
+    <Folder Include="03_PartAct\03_02_ENG.PartActHierarchy\03_Procedures" />
+    <Folder Include="03_PartAct\04_01_EXTR.PROCACT\01_Tables" />
+    <Folder Include="03_PartAct\04_01_EXTR.PROCACT\03_Procedures" />
+    <Folder Include="03_PartAct\04_01_EXTR.PROCACT\01_Tables\Triggers" />
+    <Folder Include="03_PartAct\04_01_EXTR.PROCACT\02_Views" />
+    <Folder Include="03_PartAct\04_02_TRNS.PROCACT" />
+    <Folder Include="03_PartAct\04_02_TRNS.PROCACT\01_Tables" />
+    <Folder Include="03_PartAct\04_02_TRNS.PROCACT\03_Procedures" />
+    <Folder Include="03_PartAct\04_02_TRNS.PROCACT\01_Tables\Triggers" />
+    <Folder Include="03_PartAct\04_03_LOAD.PROCACT" />
+    <Folder Include="03_PartAct\04_03_LOAD.PROCACT\03_Procedures" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
@@ -144,19 +195,70 @@
     <None Include="99_PostDeployment\02_Jobs\ExtractionTable.sql" />
   </ItemGroup>
   <ItemGroup>
+    <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Triggers\EXTR.SERIAL_AfterInsertTrigger.sql" />
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Triggers\EXTR.SERIAL_InsteadOfTrigger.sql" />
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\EXTR.SERIAL.sql" />
     <Build Include="04_WorkOrders\02_OPR.WorkOrders\01_Tables\OPR.WorkOrders.sql" />
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\02_Views\ERP.SERIAL.sql" />
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\03_Procedures\EXTR.ERP_SERIAL.sql" />
     <Build Include="05_Production\01_EXTR.ALINE\01_Tables\Triggers\EXTR.ALINE_AfterInsertTrigger.sql" />
+    <Build Include="01_Appendix\02_Functions\ERP.IntToDate.sql" />
     <Build Include="01_Appendix\02_Functions\ERP.IntToDateTime.sql" />
     <Build Include="05_Production\01_EXTR.ALINE\03_Procedures\EXTR.ERP_ALINE.sql" />
     <Build Include="05_Production\01_EXTR.ALINE\02_Views\ERP.ALINE.sql" />
     <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionWrkOrd.sql" />
     <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionPart.sql" />
     <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionAct.sql" />
-    <Build Include="01_Appendix\02_Functions\ERP.IntToDate.sql" />
-    <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Triggers\EXTR.SERIAL_AfterInsertTrigger.sql" />
+    <Build Include="06_Clients\02_MKT.Clients\01_Tables\MKT.Clients.sql" />
+    <Build Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables\EXTR.CUSTOMERS.sql" />
+    <Build Include="02_Parts\01_EXTR.PART\01_Tables\Indexes\idx_PART_UDATE.sql" />
+    <Build Include="02_Parts\01_EXTR.PART\01_Tables\Indexes\idx_PART_ExpiryDate.sql" />
+    <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Indexes\idx_SERIAL_UDATE.sql" />
+    <Build Include="04_WorkOrders\01_EXTR.SERIAL\01_Tables\Indexes\idx_SERIAL_ExpiryDate.sql" />
+    <Build Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables\Triggers\EXTR.CUSTOMERS_InsteadOfTrigger.sql" />
+    <Build Include="06_Clients\01_EXTR.CUSTUMERS\01_Tables\Triggers\EXTR.CUSTOMERS_AfterInsertTrigger.sql" />
+    <Build Include="06_Clients\01_EXTR.CUSTUMERS\02_Views\ERP.CUSTOMERS.sql" />
+    <Build Include="06_Clients\01_EXTR.CUSTUMERS\03_Procedures\EXTR.ERP_CUSTOMERS.sql" />
+    <Build Include="03_PartAct\01_01_TRNS.PartAct\02_Views\TRNS.PartActStdTime.sql" />
+    <Build Include="03_PartAct\01_01_TRNS.PartAct\02_Views\TRNS.PartTopBom.sql" />
+    <Build Include="03_PartAct\01_01_TRNS.PartAct\03_Procedures\TRNS.ERP_PartAct.sql" />
+    <Build Include="03_PartAct\01_01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartAct.sql" />
+    <Build Include="03_PartAct\01_01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartActBin.sql" />
+    <Build Include="03_PartAct\01_01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartActIsLast.sql" />
+    <Build Include="03_PartAct\01_01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartActPos.sql" />
+    <Build Include="03_PartAct\01_01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartIsRoot.sql" />
+    <Build Include="03_PartAct\01_01_TRNS.PartAct\01_Tables\Indexes\idx_TRNS_PartPreAct.sql" />
+    <Build Include="03_PartAct\02_01_TRNS.PartActAdjacency\01_Tables\TRNS.PartActAdjacency.sql" />
+    <Build Include="03_PartAct\02_01_TRNS.PartActAdjacency\03_Procedures\TRNS.ERP_PartActAdjacency.sql" />
+    <Build Include="03_PartAct\03_01_TRNS.PartActHierarchy\01_Tables\TRNS.PartActHierarchy.sql" />
+    <Build Include="03_PartAct\01_01_TRNS.PartAct\01_Tables\TRNS.PartAct.sql" />
+    <Build Include="03_PartAct\03_01_TRNS.PartActHierarchy\01_Tables\Indexes\idx_PartActBinRoot.sql" />
+    <Build Include="03_PartAct\03_01_TRNS.PartActHierarchy\01_Tables\Indexes\idx_SonPartActID.sql" />
+    <Build Include="03_PartAct\03_01_TRNS.PartActHierarchy\03_Procedures\TRNS.ERP_PartActHierarchy.sql" />
+    <Build Include="03_PartAct\03_01_TRNS.PartActHierarchy\02_Views\TRNS.PartActHierarchyView.sql" />
+    <Build Include="03_PartAct\01_02_ENG.PartAct\03_Procedures\LOAD.PartAct.sql" />
+    <Build Include="03_PartAct\02_02_ENG.PartActAdjacency\01_Tables\ENG.PartActAdjacency.sql" />
+    <Build Include="03_PartAct\02_02_ENG.PartActAdjacency\03_Procedures\LOAD.PartActAdjacency.sql" />
+    <Build Include="03_PartAct\01_02_ENG.PartAct\01_Tables\ENG.PartAct.sql" />
+    <Build Include="03_PartAct\01_02_ENG.PartAct\01_Tables\Indexes\idx_ENG_PartActBin.sql" />
+    <Build Include="03_PartAct\01_02_ENG.PartAct\01_Tables\Indexes\idx_ENG_PartActIsLast.sql" />
+    <Build Include="03_PartAct\01_02_ENG.PartAct\01_Tables\Indexes\idx_ENG_PartActPos.sql" />
+    <Build Include="03_PartAct\01_02_ENG.PartAct\01_Tables\Indexes\idx_ENG_PartIsRoot.sql" />
+    <Build Include="03_PartAct\01_02_ENG.PartAct\01_Tables\Indexes\idx_ENG_PartPreAct.sql" />
+    <Build Include="03_PartAct\02_02_ENG.PartActAdjacency\02_Views\ENG.PartActAdjacencyView.sql" />
+    <Build Include="03_PartAct\02_02_ENG.PartActAdjacency\02_Views\NG.PartAdjacencyView.sql" />
+    <Build Include="03_PartAct\03_02_ENG.PartActHierarchy\01_Tables\ENG.PartActHierarchy.sql" />
+    <Build Include="03_PartAct\03_02_ENG.PartActHierarchy\02_Views\ENG.PartActHierarchyView.sql" />
+    <Build Include="03_PartAct\03_02_ENG.PartActHierarchy\03_Procedures\LOAD.PartActHierarchy.sql" />
+    <Build Include="03_PartAct\04_01_EXTR.PROCACT\01_Tables\EXTR.PROCACT.sql" />
+    <Build Include="03_PartAct\04_01_EXTR.PROCACT\01_Tables\Triggers\EXTR.PROCACT_AfterUpdateTrigger.sql" />
+    <Build Include="03_PartAct\04_01_EXTR.PROCACT\03_Procedures\EXTR.ERP_PROCACT.sql" />
+    <Build Include="03_PartAct\04_01_EXTR.PROCACT\02_Views\EXTR.PROCACT_Target.sql" />
+    <Build Include="03_PartAct\04_02_TRNS.PROCACT\01_Tables\TRNS.PartProcess.sql" />
+    <Build Include="03_PartAct\04_02_TRNS.PROCACT\01_Tables\Triggers\TRNS.PartProcess_AfterInsertTrigger.sql" />
+    <Build Include="03_PartAct\04_02_TRNS.PROCACT\03_Procedures\TRNS.PROCACT_ActPos.sql" />
+    <Build Include="03_PartAct\04_01_EXTR.PROCACT\02_Views\ERP.PROCACT.sql" />
+    <Build Include="03_PartAct\04_03_LOAD.PROCACT\03_Procedures\LOAD.PROCACT_PartAct.sql" />
+    <Build Include="02_Parts\01_EXTR.PART\03_Procedures\LOAD.PART_PartAct.sql" />
   </ItemGroup>
 </Project>

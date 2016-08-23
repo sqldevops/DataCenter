@@ -1,0 +1,41 @@
+<<<<<<< HEAD
+﻿IF OBJECT_ID('ETL.ExtractPolicy') IS NOT NULL DROP PROCEDURE ETL.ExtractPolicy;
+GO
+CREATE PROCEDURE [ETL].[ExtractPolicy] (@policy VARCHAR(1))
+=======
+﻿CREATE PROCEDURE [ETL].[ExtractPolicy] (@policy VARCHAR(1))
+>>>>>>> release/PROCACT
+AS
+BEGIN
+DECLARE @table			NVARCHAR(25);
+DECLARE @isExtracted	BIT;
+DECLARE @procedure		NVARCHAR(48);
+DECLARE	@job			CHAR(1);
+DECLARE @sqlString		NVARCHAR(250);
+--Declare cursor
+DECLARE crExtract CURSOR FOR 
+SELECT	 T.ExtractionTableName
+		,T.ExtractionAgent 
+FROM ETL.ExtractionTables AS T
+WHERE		T.ExtractionPolicy=@policy
+		AND T.ExtractionTableIsActive=1
+
+OPEN	crExtract;
+--Fetch first row values
+FETCH NEXT FROM crExtract INTO				 @table
+											,@procedure
+--Loop on table rows
+WHILE @@FETCH_STATUS = 0	
+BEGIN							
+	SET @sqlString='EXEC ' + @procedure + ';';
+	EXEC sp_executesql @sqlString;
+--Fetch next row
+	FETCH NEXT FROM crExtract INTO		 @table
+										,@procedure
+	
+END;
+CLOSE		crExtract;
+DEALLOCATE	crExtract;
+END;
+
+GO
