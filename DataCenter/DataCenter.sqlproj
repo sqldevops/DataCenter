@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{23f204cd-62d8-49cd-bff1-9e989195ec80}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -259,5 +259,6 @@
     <Build Include="03_PartAct\04_02_TRNS.PROCACT\03_Procedures\TRNS.PROCACT_ActPos.sql" />
     <Build Include="03_PartAct\04_01_EXTR.PROCACT\02_Views\ERP.PROCACT.sql" />
     <Build Include="03_PartAct\04_03_LOAD.PROCACT\03_Procedures\LOAD.PROCACT_PartAct.sql" />
+    <Build Include="02_Parts\01_EXTR.PART\03_Procedures\LOAD.PART_PartAct.sql" />
   </ItemGroup>
 </Project>

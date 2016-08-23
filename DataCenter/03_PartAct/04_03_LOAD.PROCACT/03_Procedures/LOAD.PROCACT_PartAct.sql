@@ -4,7 +4,7 @@ AS
 BEGIN
 
 
---3. Merge changes with ENG.PartAct
+--1. Merge changes with ENG.PartAct
 WITH cte AS
 (
 	SELECT *
@@ -86,6 +86,26 @@ VALUES	(
 		)
 WHEN NOT MATCHED BY Source THEN 
 DELETE;
+
+--2.
 DELETE ENG.PartAct WHERE ActPos IS NULL;
+
+--3. Update PrevActID and NextActID (if for some reason is not updated in 1.)
+UPDATE T1
+SET T1.PrevActID=T2.PrevActID,T1.NextActID=T2.NextActID
+FROM ENG.PartAct T1 
+CROSS APPLY 
+(
+		SELECT 
+		T.PartActID,
+		T.PartID,
+		T.ActID,
+		T.ActPos,
+		LAG(T.ActID,1,0)  OVER (PARTITION BY T.ProcessID ORDER BY T.ActPos)	AS PrevActID		,
+		LEAD(T.ActID,1,0) OVER (PARTITION BY T.ProcessID ORDER BY T.ActPos)	AS NextActID	
+		FROM 	ENG.PartAct T WHERE T.PartID=T1.PartID
+) T2
+WHERE T1.PartActID=T2.PartActID
+
 END;
 GO

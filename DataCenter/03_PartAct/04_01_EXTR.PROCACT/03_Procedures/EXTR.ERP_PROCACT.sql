@@ -67,8 +67,8 @@ FROM
 
 --2. Populate EXTR.Processes : Processes that are connected to parts only.
 
-INSERT INTO TRNS.PartProcess (PART,T$PROC)
-SELECT DISTINCT T2.PART,T1.T$PROC
+INSERT INTO TRNS.PartProcess (PART,T$PROC,Source)
+SELECT DISTINCT T2.PART,T1.T$PROC,'PROCACT'
 FROM @Process		AS T1
 JOIN [$(PriorityServer)].[$(PriorityDatabase)].dbo.PART	AS T2 ON T2.T$PROC=T1.T$PROC;
 END;

@@ -27,6 +27,7 @@ $xml.configuration.SqlUnitTesting.PrivilegedContext.ConnectionString=$connection
 $xml.Save($test_config);
 #-----------------------------------------------------------------------------------------------#
 
+
 #-----------------------------------------------------------------------------------------------#
 # Delete test results file if exists.
 #-----------------------------------------------------------------------------------------------#
@@ -34,13 +35,10 @@ if (Test-Path $test_results_path) {Remove-Item $test_results_path};
 #-----------------------------------------------------------------------------------------------#
 
 #-----------------------------------------------------------------------------------------------#
-# Run job to populate database with Priority tables 
+# Run tests by category
 #-----------------------------------------------------------------------------------------------#
-sqlcmd -S $target_server -Q "EXEC msdb.dbo.sp_start_job @job_name='ETL_EXRT_Policy_A'";
-#-----------------------------------------------------------------------------------------------#
-
-#-----------------------------------------------------------------------------------------------#
-# Run procedure to populate PartAct table
-#-----------------------------------------------------------------------------------------------#
-sqlcmd -S $target_server -d $target_database -Q "EXEC EXTR.ERP_PROCACT;"
+# Database unit tests supported only in old MSTest, not in VSTest.Console.Exe  .
+# Link: https://msdn.microsoft.com/en-us/library/ms253138(v=vs.110).aspx#Runner.
+# Cant run ordertest and playlist in MSTest, order is hopefully set as "alphnumeric".
+mstest /testcontainer:$test_path /category:$test_category /resultsfile:"$test_results_path";
 #-----------------------------------------------------------------------------------------------#
