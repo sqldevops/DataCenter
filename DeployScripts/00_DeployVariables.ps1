@@ -10,7 +10,7 @@ $root = "D:\SourceCode\SSDT";
 #-----------------------------------------------------------------------------------------------#
 $priority_server="APC-DB1\TEST" # For testing environment use Priority.cele database copy 
 #$priority_server = "Priority"  # For develop environment use Priority linked server
-$priority_database="cele"
+#$priority_database="cele"
 #-----------------------------------------------------------------------------------------------#
 
 

@@ -4,19 +4,20 @@
 	,PartActBin			AS CAST('/'+ CAST(PartActID AS VARCHAR(10))+ '/' AS HIERARCHYID) PERSISTED  
 	,ProcessID			INT							NOT NULL				
 	,PartID				INT							NOT NULL
-	,Part				VARCHAR(22)					
+	,Part				VARCHAR(22)			
+	,PartIsRoot			BIT	
+	,PartIsActive		BIT		
 	,ActID				INT							NOT NULL
-	,Act				VARCHAR(10)					
-	,PartIsActive		BIT							
+	,Act				VARCHAR(10)									
 	--,SonIsActive		BIT	
 	--,PartIsValid		BIT							NOT NULL DEFAULT(1)			
 	--,ActOrd				INT													--Act Row Number according to POS
-	,ActPos				INT											--POS column in Priority					
-	,WorkCenterID		INT					
-	,WorkCenter			VARCHAR(6)				
+	,ActPos				INT											--POS column in Priority								
 	,PrevActID			INT		
 	,NextActID			INT				
 	,ActIsLast			BIT 
+	,WorkCenterID		INT					
+	,WorkCenter			VARCHAR(6)	
 	,stdTimeEmployee	FLOAT 
 	,stdTimeMachine		FLOAT
 	,PartActDays		INT							
@@ -25,7 +26,7 @@
 	,IsBranchRoot		BIT							NOT NULL DEFAULT(0)
 	,IsBranchEdge		BIT							NOT NULL DEFAULT(0)
 	,DateTimeStamp		DATETIME
-	,Originator			VARCHAR(50)	
+	,Source				VARCHAR(10)	
 	CONSTRAINT pk_PartAct PRIMARY KEY CLUSTERED (PartActID)
 	 
 );

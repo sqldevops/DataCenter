@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE TRNS.PROCACT_ActPos 
+﻿/*
+This procedure is fired by TRNS.PartProcess_AfterInsertTrigger ON TRNS.PartProcess
+*/
+CREATE PROCEDURE TRNS.PROCACT_ActPos 
 AS
 BEGIN
 
@@ -17,7 +20,7 @@ BEGIN
 	JOIN TRNS.PartProcess	AS T3 ON  T3.T$PROC=T1.T$PROC;
 
 --2. Truncate TRNS.PartProcess after finishing using it.
-	TRUNCATE TABLE TRNS.PartProcess;
+	--TRUNCATE TABLE TRNS.PartProcess;
 
 END;
 --Nested procedure in EXTR.ERP_PROCACT for recalculating ActPos

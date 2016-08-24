@@ -7,40 +7,12 @@ BEGIN
 --1. Merge changes with ENG.PartAct
 WITH cte AS
 (
-	SELECT *
+	SELECT T1.*
 	FROM ENG.PartAct AS T1
 	JOIN TRNS.PartProcess			AS T2 ON T2.T$PROC=T1.ProcessID AND T2.PART=T1.PartID
 )
-MERGE cte WITH (HOLDLOCK)																					AS Target
-USING	(
-			SELECT	T4.PART															AS PartID			,
-					T4.PARTNAME														AS Part				,
-					T2.T$PROC														AS ProcessID		,
-					T2.ACT															AS ActID			,
-					T5.ACTNAME														AS Act				,
-					IIF(T4.PARTSTAT=1 OR T4.PARTSTAT=-2,0,1)						AS PartIsActive		,
-					T2.ActPos														AS ActPos			,
-					T6.WORKC														AS WorkCenterID		,
-					T6.WORKCNAME													AS WorkCenter		,
-					LAG(T2.ACT,1,0)  OVER (PARTITION BY T2.T$PROC ORDER BY T2.POS)	AS PrevActID		,
-					LEAD(T2.ACT,1,0) OVER (PARTITION BY T2.T$PROC ORDER BY T2.POS)	AS NextActID		,
-					LAST_VALUE(T2.ACT) OVER (
-												PARTITION BY T2.T$PROC 
-												ORDER BY T2.POS ROWS 
-												BETWEEN UNBOUNDED PRECEDING 
-												AND		UNBOUNDED FOLLOWING
-											)										AS LastActId		,
-					T7.stdTimeEmployee												AS stdTimeEmployee	,
-					T7.stdTimeMachine												AS stdTimeMachine
-			FROM TRNS.PartProcess				AS T1
-			JOIN EXTR.PROCACT				AS T2 ON T2.T$PROC=T1.T$PROC
-			JOIN [$(PriorityServer)].[$(PriorityDatabase)].dbo.PART				AS T4 ON T4.T$PROC=T1.T$PROC AND T4.PART=T1.PART
-			JOIN [$(PriorityServer)].[$(PriorityDatabase)].dbo.ACT				AS T5 ON T5.ACT=T2.ACT
-			JOIN [$(PriorityServer)].[$(PriorityDatabase)].dbo.WORKC				AS T6 ON T6.WORKC=T5.WORKC
-			--Left join is required, not all Act std Time is updated/syncronized !!!
-			LEFT JOIN TRNS.PartActStdTime()	AS T7 ON T7.PartID=T4.PART AND T7.ActID=T5.ACT	 
-			WHERE T2.RowExpiryDate>GETDATE() 
-		)																										AS Source
+MERGE cte WITH (HOLDLOCK)				AS Target
+USING	(SELECT	* FROM TRNS.PartAct())	AS Source
 ON		(
 			Target.ProcessID= Source.ProcessID	AND
 			Target.ActID	= Source.ActID		AND
@@ -50,35 +22,37 @@ WHEN NOT MATCHED BY Target THEN
 INSERT	(
 			PartID			,
 			Part			,
+			PartIsRoot		,
+			PartIsActive	,
 			ProcessID		,
 			ActID			,
 			Act				,
-			PartIsActive	,
 			ActPos			,
-			WorkCenterID	,
-			WorkCenter		,
 			PrevActID		,
 			NextActID		,
 			ActIsLast		,
+			WorkCenterID	,
+			WorkCenter		,
 			stdTimeEmployee	,
 			stdTimeMachine	,
 			DateTimeStamp	,
-			Originator		
+			[Source]		
 		)
 
 VALUES	(
 			Source.PartID			,
 			Source.Part				,
+			Source.PartIsRoot		,
+			Source.PartIsActive		,
 			Source.ProcessID		,
 			Source.ActID			,
 			Source.Act				,
-			Source.PartIsActive		,
 			Source.ActPos			,
-			Source.WorkCenterID		,
-			Source.WorkCenter		,
 			Source.PrevActID		,
 			Source.NextActID		,
-			IIF(Source.LastActId=Source.ActID,1,0)	,
+			Source.ActIsLast		,
+			Source.WorkCenterID		,
+			Source.WorkCenter		,
 			Source.stdTimeEmployee	,
 			Source.stdTimeMachine	,
 			GETDATE()				,

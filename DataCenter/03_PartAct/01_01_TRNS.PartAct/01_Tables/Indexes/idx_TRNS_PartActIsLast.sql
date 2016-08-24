@@ -1,1 +1,0 @@
-﻿CREATE			NONCLUSTERED INDEX idx_TRNS_PartActIsLast	ON TRNS.PartAct (PartID,ActIsLast)	INCLUDE (PartActID,ActID,Act);

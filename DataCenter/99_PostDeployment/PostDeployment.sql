@@ -17,7 +17,7 @@ Post-Deployment Script Template
 /* Job Policies */
 :r .\02_Jobs\ETL.ExtractPolicy.sql
 :r .\02_Jobs\ExtractionPolicies.sql
-:r .\02_Jobs\ExtractionTable.sql
+:r .\02_Jobs\ExtractionTables.sql
 
 /* Jobs */
 
