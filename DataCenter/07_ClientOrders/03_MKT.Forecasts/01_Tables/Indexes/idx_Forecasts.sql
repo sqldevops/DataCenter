@@ -1,0 +1,1 @@
+﻿CREATE UNIQUE NONCLUSTERED	INDEX idx_Forecasts			ON MKT.Forecasts (ForecastYear,ForecastMonth,PartID);

@@ -144,6 +144,20 @@
     <Folder Include="03_PartAct\04_01_PartActHierarchy\01_Tables\Triggers" />
     <Folder Include="03_PartAct\05_01_PartActAssembly\01_Tables\Triggers" />
     <Folder Include="03_PartAct\06_01_AssemblyHierarchy\01_Tables\Triggers" />
+    <Folder Include="07_ClientOrders" />
+    <Folder Include="07_ClientOrders\01_EXTR.ORDERITEMS" />
+    <Folder Include="07_ClientOrders\02_MKT.ClientOrders" />
+    <Folder Include="07_ClientOrders\01_EXTR.ORDERITEMS\01_Tables" />
+    <Folder Include="07_ClientOrders\01_EXTR.ORDERITEMS\02_Views" />
+    <Folder Include="07_ClientOrders\01_EXTR.ORDERITEMS\03_Procedures" />
+    <Folder Include="07_ClientOrders\01_EXTR.ORDERITEMS\01_Tables\Indexes" />
+    <Folder Include="07_ClientOrders\01_EXTR.ORDERITEMS\01_Tables\Triggers" />
+    <Folder Include="07_ClientOrders\02_MKT.ClientOrders\01_Tables" />
+    <Folder Include="07_ClientOrders\02_MKT.ClientOrders\01_Tables\Indexes" />
+    <Folder Include="07_ClientOrders\02_MKT.ClientOrders\02_Views" />
+    <Folder Include="07_ClientOrders\03_MKT.Forecasts" />
+    <Folder Include="07_ClientOrders\03_MKT.Forecasts\01_Tables" />
+    <Folder Include="07_ClientOrders\03_MKT.Forecasts\01_Tables\Indexes" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
@@ -262,6 +276,20 @@
     <Build Include="03_PartAct\06_01_AssemblyHierarchy\02_Views\ENG.AssemblyHierarchy.sql" />
     <Build Include="03_PartAct\05_01_PartActAssembly\01_Tables\Triggers\TRNS_PartActAssembly_AfterInserTrigger.sql" />
     <Build Include="03_PartAct\04_01_PartActHierarchy\01_Tables\Triggers\TRNS_PartActHierarchy_AfterInserTrigger.sql" />
+    <Build Include="07_ClientOrders\01_EXTR.ORDERITEMS\01_Tables\EXTR.ORDERITEMS.sql" />
+    <Build Include="07_ClientOrders\01_EXTR.ORDERITEMS\01_Tables\Indexes\idx_ERP_ORDERITEMS_ExpiryDate.sql" />
+    <Build Include="07_ClientOrders\01_EXTR.ORDERITEMS\01_Tables\Triggers\EXTR.ORDERITEMS_InsteadOfTrigger.sql" />
+    <Build Include="07_ClientOrders\01_EXTR.ORDERITEMS\01_Tables\Triggers\EXTR.ORDERITEMS_AfterInsertTrigger.sql" />
+    <Build Include="07_ClientOrders\02_MKT.ClientOrders\01_Tables\MKT.ClientOrders.sql" />
+    <Build Include="07_ClientOrders\02_MKT.ClientOrders\01_Tables\Indexes\idx_ActiveClientOrders.sql" />
+    <Build Include="07_ClientOrders\02_MKT.ClientOrders\02_Views\MKT.ActiveClientOrders.sql" />
+    <Build Include="07_ClientOrders\03_MKT.Forecasts\01_Tables\MKT.Forecasts.sql" />
+    <Build Include="07_ClientOrders\03_MKT.Forecasts\01_Tables\Indexes\idx_Forecasts.sql" />
+    <Build Include="07_ClientOrders\03_MKT.Forecasts\01_Tables\Indexes\idx_ForecastIsOpen.sql" />
+    <Build Include="07_ClientOrders\03_MKT.Forecasts\01_Tables\Indexes\idx_Forecast.sql" />
+    <Build Include="07_ClientOrders\03_MKT.Forecasts\01_Tables\Indexes\idx_Forecast1.sql" />
+    <Build Include="07_ClientOrders\01_EXTR.ORDERITEMS\03_Procedures\EXTR.ERP_ORDERITEMS.sql" />
+    <Build Include="07_ClientOrders\01_EXTR.ORDERITEMS\02_Views\ERP.ORDERITEMS.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DataCenter.refactorlog" />
