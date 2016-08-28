@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="f341a09c-04ed-40fd-b1a6-51ab2e99d09d" ChangeDateTime="08/24/2016 10:34:02">
+    <Property Name="ElementName" Value="[TRNS].[PartProcess]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[TRNS]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="PROCACT" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3dd34fa9-a560-4227-af84-79995a7d8e6d" ChangeDateTime="08/25/2016 16:00:23">
+    <Property Name="ElementName" Value="[TRNS].[PartActAssembly].[PartActAssemblyID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[TRNS].[PartActAssembly]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AssemblyPartActID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="036aa9db-2edd-4db8-b2e7-5834f5c08474" ChangeDateTime="08/25/2016 16:00:46">
+    <Property Name="ElementName" Value="[TRNS].[PartActAssembly].[PartAssemblyID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[TRNS].[PartActAssembly]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AssemblyPartID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="76b2b8f4-b2a3-4487-93d8-42aca1b4dd3c" ChangeDateTime="08/25/2016 16:01:30">
+    <Property Name="ElementName" Value="[TRNS].[PartActAssembly].[PartAssemblyBinPath]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[TRNS].[PartActAssembly]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AssemblyBinPath" />
+  </Operation>
+</Operations>

@@ -3,7 +3,7 @@
 INSTEAD OF INSERT
 AS
 BEGIN
-	TRUNCATE TABLE TRNS.PartProcess;
+	TRUNCATE TABLE TRNS.PROCACT;
 	--Save all changes in Process of existing part or of a new part
 	DECLARE @Processes	TABLE	(PART INT, T$PROC INT);
 
@@ -82,7 +82,7 @@ BEGIN
 	FROM inserted	 AS T1;
 
 	--Populate TRNS.PartProcess trigger table
-	INSERT INTO TRNS.PartProcess(PART,T$PROC,Source)
+	INSERT INTO TRNS.PROCACT(PART,T$PROC,Source)
 	SELECT DISTINCT T1.PART,T1.T$PROC,'PART'
 	FROM @Processes		AS T1;
 END;
