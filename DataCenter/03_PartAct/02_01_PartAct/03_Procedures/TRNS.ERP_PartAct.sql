@@ -78,3 +78,4 @@ FROM cte
 
 RETURN;
 END;
+GO

@@ -5,7 +5,7 @@ after TRNS.PROCACT is populated.
 This trigger will NOT be fired after data is inserted to [EXTR].[PROCACT],
 by EXTR.ERP_PROCACT procedure.
 */
-CREATE TRIGGER EXTR.PROCACT_Trigger ON EXTR.PROCACT
+CREATE TRIGGER EXTR.PROCACT_AfterUpdateTrigger ON EXTR.PROCACT
 AFTER UPDATE
 AS
 IF EXISTS(SELECT * FROM TRNS.PROCACT) EXEC LOAD.PROCACT_PartAct;

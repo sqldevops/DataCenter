@@ -75,3 +75,4 @@ FROM cte AS T;
 
 
 END;
+GO

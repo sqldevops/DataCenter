@@ -24,6 +24,7 @@
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <DefaultCollation>Hebrew_BIN</DefaultCollation>
+    <TargetDatabase>DataCenter</TargetDatabase>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -158,6 +159,7 @@
     <Folder Include="07_ClientOrders\03_MKT.Forecasts" />
     <Folder Include="07_ClientOrders\03_MKT.Forecasts\01_Tables" />
     <Folder Include="07_ClientOrders\03_MKT.Forecasts\01_Tables\Indexes" />
+    <Folder Include="99_PostDeployment\03_Data" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
@@ -199,6 +201,20 @@
   <ItemGroup>
     <None Include="DataCenter.publish.xml" />
     <None Include="99_PostDeployment\02_Jobs\ETL.ExtractPolicy.sql" />
+    <None Include="99_PostDeployment\03_Data\EXTR.PART_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\ENG.PartAct_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\ENG.Parts_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\EXTR.SERIAL_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\OPR.WorkOrders_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\EXTR.ALINE_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\EXTR.CUSTOMERS_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\OPR.Production_Population.sql" />
+    <None Include="99_PostDeployment\03_Data\MKT.Clients_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\EXTR.ORDERITEMS_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\MKT.ClientOrders_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\MKT.Forecasts_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\EXTR.PROCACT_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\ENG.AssemblyHierarchy.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_A.sql" />

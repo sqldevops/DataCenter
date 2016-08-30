@@ -19,4 +19,5 @@
 	,stdTimeEmployee	FLOAT 
 	,stdTimeMachine		FLOAT
 	CONSTRAINT pk_TRNS_PartAct PRIMARY KEY CLUSTERED (PartActID)
-)
+);
+GO

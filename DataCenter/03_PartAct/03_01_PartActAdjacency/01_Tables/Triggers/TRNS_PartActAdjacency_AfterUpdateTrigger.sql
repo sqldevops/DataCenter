@@ -7,3 +7,4 @@ AS
 BEGIN
 	EXEC TRNS.ERP_PartActHierarchy;
 END;
+GO
