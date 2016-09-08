@@ -160,6 +160,11 @@
     <Folder Include="07_ClientOrders\03_MKT.Forecasts\01_Tables" />
     <Folder Include="07_ClientOrders\03_MKT.Forecasts\01_Tables\Indexes" />
     <Folder Include="99_PostDeployment\03_Data" />
+    <Folder Include="08_Calendar" />
+    <Folder Include="08_Calendar\01_Tables" />
+    <Folder Include="08_Calendar\02_Functions" />
+    <Folder Include="08_Calendar\01_Tables\Indexes" />
+    <Folder Include="08_Calendar\01_Tables\Constraints" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
@@ -215,6 +220,7 @@
     <None Include="99_PostDeployment\03_Data\MKT.Forecasts_Populate.sql" />
     <None Include="99_PostDeployment\03_Data\EXTR.PROCACT_Populate.sql" />
     <None Include="99_PostDeployment\03_Data\ENG.AssemblyHierarchy.sql" />
+    <None Include="99_PostDeployment\03_Data\GEN.Calendar.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_A.sql" />
@@ -306,6 +312,10 @@
     <Build Include="07_ClientOrders\03_MKT.Forecasts\01_Tables\Indexes\idx_Forecast1.sql" />
     <Build Include="07_ClientOrders\01_EXTR.ORDERITEMS\03_Procedures\EXTR.ERP_ORDERITEMS.sql" />
     <Build Include="07_ClientOrders\01_EXTR.ORDERITEMS\02_Views\ERP.ORDERITEMS.sql" />
+    <Build Include="08_Calendar\02_Functions\GEN.GenerateCalendar.sql" />
+    <Build Include="08_Calendar\01_Tables\GEN.Calendar.sql" />
+    <Build Include="08_Calendar\01_Tables\Indexes\idx_YearWeek.sql" />
+    <Build Include="08_Calendar\01_Tables\Constraints\Constraints.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DataCenter.refactorlog" />

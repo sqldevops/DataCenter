@@ -27,6 +27,9 @@ Post-Deployment Script Template
 :r .\02_Jobs\ExtractPolicy_D.sql
 
 /* Data  */
+--Calendar
+:r .\03_Data\GEN.Calendar.sql
+
 --Parts
 :r .\03_Data\EXTR.PART_Populate.sql
 :r .\03_Data\ENG.PartAct_Populate.sql

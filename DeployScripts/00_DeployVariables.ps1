@@ -8,8 +8,8 @@ $root = "D:\SourceCode\SSDT";
 #-----------------------------------------------------------------------------------------------#
 #Data source for ETL process : 
 #-----------------------------------------------------------------------------------------------#
-#$priority_server="APC-DB1\TEST" # For testing environment use Priority.cele database copy 
-$priority_server = "Priority"  # For develop environment use Priority linked server
+$priority_server="APC-DB1\TEST" # For testing environment use Priority.cele database copy 
+#$priority_server = "Priority"  # For develop environment use Priority linked server
 $priority_database="cele"
 #-----------------------------------------------------------------------------------------------#
 
@@ -65,9 +65,9 @@ $test_results_path="$sln_folder\TestResults\TestResults.trx";
 #Target
 #-----------------------------------------------------------------------------------------------#
 
-#$env="TEST";
+$env="TEST";
 #$env="DEV";
-$env="OPER";
+#$env="OPER";
 $Target_Server=switch ($env)
     {
       "TEST" {"APC-DB1\TEST"}
@@ -101,6 +101,6 @@ $Branch=gitversion | ConvertFrom-JSON |select BranchName
 $sln_name + '_' + $SemVer.SemVer + '_' + $Branch.BranchName
 if ($env -eq "OPER") {$target_database=$proj_name}
 else {$target_database=$proj_name + '_' + $SemVer.SemVer + '_' + $Branch.BranchName}
-$target_database=$proj_name + '_' + $SemVer.SemVer + '_' + $Branch.BranchName
+
 #-----------------------------------------------------------------------------------------------#
 
