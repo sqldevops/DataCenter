@@ -1,4 +1,4 @@
-﻿CREATE TRIGGER [EXTR].[PART_InsteadOfTrigger] ON [EXTR].[PART] 
+﻿CREATE TRIGGER EXTR.PART_InsteadOfTrigger ON [EXTR].[PART] 
 --Because UDATE allways increases EXTR.PART allways grows (only Inserts, no updates) 
 INSTEAD OF INSERT
 AS

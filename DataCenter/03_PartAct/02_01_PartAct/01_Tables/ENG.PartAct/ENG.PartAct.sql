@@ -30,3 +30,4 @@
 	CONSTRAINT pk_ENG_PartAct PRIMARY KEY CLUSTERED (PartActID)
 	 
 );
+GO

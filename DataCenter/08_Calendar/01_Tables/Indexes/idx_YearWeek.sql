@@ -1,0 +1,1 @@
+﻿CREATE NONCLUSTERED INDEX idx_YearWeek ON GEN.Calendar([Year],[Week]) INCLUDE (DateInt,[Month],WkDNo,DateStr,workDay);

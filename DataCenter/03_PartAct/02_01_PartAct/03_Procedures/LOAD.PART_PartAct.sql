@@ -53,3 +53,4 @@ SELECT	PartID			,
 		'PART'		
 FROM TRNS.PartAct
 END;
+GO

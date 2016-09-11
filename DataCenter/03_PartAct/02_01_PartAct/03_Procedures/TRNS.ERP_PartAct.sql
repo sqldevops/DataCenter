@@ -29,10 +29,10 @@ SELECT	T4.PART															AS PartID			,
 		T7.stdTimeEmployee												AS stdTimeEmployee	,
 		T7.stdTimeMachine												AS stdTimeMachine
 FROM TRNS.PROCACT				AS T1
-JOIN [APC-DB1\TEST].[cele].dbo.PROCACT	AS T2 ON T2.T$PROC=T1.T$PROC
-JOIN [APC-DB1\TEST].[cele].dbo.PART		AS T4 ON T4.T$PROC=T1.T$PROC AND T4.PART=T1.PART
-JOIN [APC-DB1\TEST].[cele].dbo.ACT		AS T5 ON T5.ACT=T2.ACT
-JOIN [APC-DB1\TEST].[cele].dbo.WORKC	AS T6 ON T6.WORKC=T5.WORKC
+JOIN [$(PriorityServer)].[$(PriorityDatabase)].dbo.PROCACT	AS T2 ON T2.T$PROC=T1.T$PROC
+JOIN [$(PriorityServer)].[$(PriorityDatabase)].dbo.PART		AS T4 ON T4.T$PROC=T1.T$PROC AND T4.PART=T1.PART
+JOIN [$(PriorityServer)].[$(PriorityDatabase)].dbo.ACT		AS T5 ON T5.ACT=T2.ACT
+JOIN [$(PriorityServer)].[$(PriorityDatabase)].dbo.WORKC	AS T6 ON T6.WORKC=T5.WORKC
 LEFT JOIN TRNS.PartActStdTime()			AS T7 ON T7.PartID=T4.PART AND T7.ActID=T5.ACT	--Left join is required, not all Act std Time is updated/syncronized !!!
 OUTER APPLY	(
 				 SELECT PART 
@@ -78,3 +78,4 @@ FROM cte
 
 RETURN;
 END;
+GO

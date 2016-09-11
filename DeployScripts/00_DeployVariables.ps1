@@ -10,7 +10,7 @@ $root = "D:\SourceCode\SSDT";
 #-----------------------------------------------------------------------------------------------#
 $priority_server="APC-DB1\TEST" # For testing environment use Priority.cele database copy 
 #$priority_server = "Priority"  # For develop environment use Priority linked server
-#$priority_database="cele"
+$priority_database="cele"
 #-----------------------------------------------------------------------------------------------#
 
 
@@ -64,10 +64,21 @@ $test_results_path="$sln_folder\TestResults\TestResults.trx";
 #-----------------------------------------------------------------------------------------------#
 #Target
 #-----------------------------------------------------------------------------------------------#
+
+$env="TEST";
+#$env="DEV";
+#$env="OPER";
+$Target_Server=switch ($env)
+    {
+      "TEST" {"APC-DB1\TEST"}
+      "DEV"  {"APC-DB1\DEV"} 
+      "OPER" {"IT-DEV-01\DataCenter"}
+    }
+
 #Target server : Testing
-$target_server="APC-DB1\TEST" # Testing environment
+#$target_server="APC-DB1\TEST" # Testing environment
 #$Target_Server="APC-DB1\DEV" # Develop environment
-#$Target_Server="IT-DEV-01\DataCenter"
+#$Target_Server="IT-DEV-01\DataCenter" # Production environment
 
 #Set Target Server version according to its version:
 
@@ -83,10 +94,13 @@ $Target_Server_Version= switch ($var.Version.Split('.',2)[0])
 
     };
 
-#Target database : name = project name _ semantic version number _ git branch name
+#Target database : in case of TEST/DEV environment name = project name _ semantic version number _ git branch name
+
 $SemVer=gitversion | ConvertFrom-JSON |select SemVer
 $Branch=gitversion | ConvertFrom-JSON |select BranchName
 $sln_name + '_' + $SemVer.SemVer + '_' + $Branch.BranchName
-$target_database=$proj_name + '_' + $SemVer.SemVer + '_' + $Branch.BranchName;
+if ($env -eq "OPER") {$target_database=$proj_name}
+else {$target_database=$proj_name + '_' + $SemVer.SemVer + '_' + $Branch.BranchName}
+
 #-----------------------------------------------------------------------------------------------#
 

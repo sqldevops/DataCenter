@@ -8,3 +8,4 @@
 	ActDays			INT
 	 CONSTRAINT pk_PartActBom PRIMARY KEY CLUSTERED (PartActBinPath)
 );
+GO

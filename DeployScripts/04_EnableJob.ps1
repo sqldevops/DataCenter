@@ -10,7 +10,7 @@
 
 
 foreach($item in $jobs){
-                            $sql_str="EXEC msdb.dbo.sp_update_job @job_name = N'$item', @enabled = 1 ;"
+                            $sql_str="EXEC msdb.dbo.sp_update_job @job_name = N'$item', @enabled = 0 ;"
                             sqlcmd -S $Target_Server -d $target_database -Q $sql_str;
                         };
 #-----------------------------------------------------------------------------------------------#

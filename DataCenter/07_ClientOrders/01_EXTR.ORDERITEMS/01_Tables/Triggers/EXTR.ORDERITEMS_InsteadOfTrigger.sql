@@ -1,5 +1,5 @@
 ﻿CREATE TRIGGER EXTR.ORDERITEMS_InsteadOfTrigger ON EXTR.ORDERITEMS 
-FOR INSERT
+INSTEAD OF INSERT
 AS
 BEGIN
 --1. Update expiry date for exsisting rows

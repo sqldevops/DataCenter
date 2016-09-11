@@ -1,0 +1,4 @@
+﻿INSERT INTO ENG.Parts
+SELECT * 
+FROM DataCenter.ENG.Parts;
+GO

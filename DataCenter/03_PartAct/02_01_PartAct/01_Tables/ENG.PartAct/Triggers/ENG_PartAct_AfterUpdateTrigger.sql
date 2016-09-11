@@ -7,4 +7,5 @@ AS
 BEGIN
 	EXEC TRNS.ERP_PartActAdjacency;
 END;
+GO
 

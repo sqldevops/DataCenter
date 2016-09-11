@@ -1,4 +1,5 @@
-﻿
+﻿CREATE SCHEMA GEN ;
+GO
 --Schemas for ETL process
 CREATE SCHEMA EXTR ;
 GO
