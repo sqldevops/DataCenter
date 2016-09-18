@@ -1,3 +1,3 @@
 ﻿INSERT INTO MKT.Clients
 SELECT * 
-FROM DataCenter.MKT.Clients;
+FROM [$(DataCenterServer)].[$(DataCenterDatabase)].MKT.Clients;

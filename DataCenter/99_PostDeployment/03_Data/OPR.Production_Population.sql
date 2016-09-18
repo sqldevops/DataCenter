@@ -1,3 +1,3 @@
 ﻿INSERT INTO OPR.Production
 SELECT * 
-FROM DataCenter.OPR.Production;
+FROM [$(DataCenterServer)].[$(DataCenterDatabase)].OPR.Production;

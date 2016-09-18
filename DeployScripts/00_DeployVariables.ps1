@@ -8,9 +8,11 @@ $root = "D:\SourceCode\SSDT";
 #-----------------------------------------------------------------------------------------------#
 #Data source for ETL process : 
 #-----------------------------------------------------------------------------------------------#
-$priority_server="APC-DB1\TEST" # For testing environment use Priority.cele database copy 
-#$priority_server = "Priority"  # For develop environment use Priority linked server
+#Priority
+#$priority_server="APC-DB1\TEST" # For testing environment use Priority.cele database copy 
+$priority_server = "Priority"  # For develop environment use Priority linked server
 $priority_database="cele"
+
 #-----------------------------------------------------------------------------------------------#
 
 
@@ -65,14 +67,14 @@ $test_results_path="$sln_folder\TestResults\TestResults.trx";
 #Target
 #-----------------------------------------------------------------------------------------------#
 
-$env="TEST";
+#$env="TEST";
 #$env="DEV";
-#$env="OPER";
+$env="OPER";
 $Target_Server=switch ($env)
     {
       "TEST" {"APC-DB1\TEST"}
       "DEV"  {"APC-DB1\DEV"} 
-      "OPER" {"IT-DEV-01\DataCenter"}
+      "OPER" {"APC-DB2\DataCenter"}
     }
 
 #Target server : Testing
@@ -103,4 +105,14 @@ if ($env -eq "OPER") {$target_database=$proj_name}
 else {$target_database=$proj_name + '_' + $SemVer.SemVer + '_' + $Branch.BranchName}
 
 #-----------------------------------------------------------------------------------------------#
+#Post deployment variables : populate deployed database with data from
+#-----------------------------------------------------------------------------------------------#
 
+#DataCenter
+$data_center_server=$Target_Server;
+$data_center_database='DataCenter_Source';
+
+#ETL
+$etl_server=$Target_Server;
+$etl_database='ETL';
+#-----------------------------------------------------------------------------------------------#

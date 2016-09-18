@@ -21,10 +21,7 @@ Post-Deployment Script Template
 
 /* Jobs */
 
-:r .\02_Jobs\ExtractPolicy_A.sql
-:r .\02_Jobs\ExtractPolicy_B.sql
-:r .\02_Jobs\ExtractPolicy_C.sql
-:r .\02_Jobs\ExtractPolicy_D.sql
+
 
 /* Data  */
 --Calendar

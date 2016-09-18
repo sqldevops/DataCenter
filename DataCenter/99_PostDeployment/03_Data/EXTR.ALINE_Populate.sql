@@ -41,7 +41,7 @@ SELECT RowEffectiveDate		,
 	   EMPASPAN				,
 	   WORKC				,
 	   SERN	
-FROM ETL.EXTR.ALINE;			
+FROM [$(ETL_Server)].[$(ETL_Database)].EXTR.ALINE;			
 GO
 
 ENABLE TRIGGER [EXTR].[ALINE_AfterInsertTrigger] ON [EXTR].[ALINE];

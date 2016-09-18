@@ -16,4 +16,4 @@ SELECT							ForecastRowID		,
 								ForecastIsOpen		,
 								ForecastUpdatedDate	,
 								DateTimeStamp	
-FROM DataCenter.MKT.Forecasts;	
+FROM [$(DataCenterServer)].[$(DataCenterDatabase)].MKT.Forecasts;	

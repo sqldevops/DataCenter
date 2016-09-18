@@ -26,4 +26,4 @@ SELECT								ClientOrderRowID		,
 									UserID					,	
 									ClientOrderIsOpen		,	
 									DateTimeStamp			
-FROM DataCenter.MKT.ClientOrders;	
+FROM [$(DataCenterServer)].[$(DataCenterDatabase)].MKT.ClientOrders;	

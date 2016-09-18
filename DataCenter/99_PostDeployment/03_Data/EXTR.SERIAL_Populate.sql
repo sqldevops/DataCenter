@@ -39,7 +39,7 @@ SELECT						RowEffectiveDate	,
 							CURDATE				,
 							CLOSEDATE			,
 							T$USER			
-FROM ETL.EXTR.SERIAL;
+FROM [$(ETL_Server)].[$(ETL_Database)].EXTR.SERIAL;
 
 --Enable triggers on EXTR.SERIAL 
 ENABLE TRIGGER [EXTR].[SERIAL_AfterInsertTrigger] ON EXTR.SERIAL ;

@@ -17,6 +17,20 @@ $node1.value=$priority_database;
 #Set target database name
 $node1=$profile_xml.Project.ItemGroup.SqlCmdVariable | where {$_.Include -eq 'TargetDatabase'}
 $node1.value=$target_database;
+
+#Set data_center_server name
+$node1=$profile_xml.Project.ItemGroup.SqlCmdVariable | where {$_.Include -eq 'DataCenterServer'}
+$node1.value=$data_center_server;
+#Set data_center_database name
+$node1=$profile_xml.Project.ItemGroup.SqlCmdVariable | where {$_.Include -eq 'DataCenterDatabase'}
+$node1.value=$data_center_database;
+
+#Set etl_server name
+$node1=$profile_xml.Project.ItemGroup.SqlCmdVariable | where {$_.Include -eq 'ETL_Server'}
+$node1.value=$etl_server;
+#Set etl_database name
+$node1=$profile_xml.Project.ItemGroup.SqlCmdVariable | where {$_.Include -eq 'ETL_Database'}
+$node1.value=$etl_database;
 #-----------------------------------------------------------------------------------------------#
 
 

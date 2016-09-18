@@ -43,7 +43,7 @@ SELECT RowEffectiveDate		,
 	   SPEC3				,
 	   SPEC6				,
 	   SPEC9		
-FROM ETL.EXTR.CUSTOMERS;	
+FROM [$(ETL_Server)].[$(ETL_Database)].EXTR.CUSTOMERS;	
 GO
 ENABLE TRIGGER [EXTR].[CUSTOMERS_AfterInsertTrigger] ON [EXTR].[CUSTOMERS] ;
 ENABLE TRIGGER [EXTR].[CUSTOMERS_InsteadOfTrigger] ON [EXTR].[CUSTOMERS] ;	

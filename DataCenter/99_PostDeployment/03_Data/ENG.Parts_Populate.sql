@@ -1,4 +1,4 @@
 ﻿INSERT INTO ENG.Parts
 SELECT * 
-FROM DataCenter.ENG.Parts;
+FROM [$(DataCenterServer)].[$(DataCenterDatabase)].ENG.Parts;
 GO

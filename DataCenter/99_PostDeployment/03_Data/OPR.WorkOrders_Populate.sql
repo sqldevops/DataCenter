@@ -1,3 +1,3 @@
 ﻿INSERT INTO OPR.WorkOrders
-SELECT * FROM DataCenter.OPR.WorkOrders;
+SELECT * FROM [$(DataCenterServer)].[$(DataCenterDatabase)].OPR.WorkOrders;
 GO

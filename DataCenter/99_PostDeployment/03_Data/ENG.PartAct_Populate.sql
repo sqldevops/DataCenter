@@ -53,4 +53,4 @@ SELECT	ProcessID		,
 		IsBranchEdge	,
 		DateTimeStamp	,
 		Originator					--different name		
-FROM DataCenter.ENG.PartAct
+FROM [$(DataCenterServer)].[$(DataCenterDatabase)].ENG.PartAct

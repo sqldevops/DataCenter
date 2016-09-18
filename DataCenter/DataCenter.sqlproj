@@ -14,7 +14,7 @@
     </RootPath>
     <RootNamespace>DataCenter</RootNamespace>
     <AssemblyName>DataCenter</AssemblyName>
-    <ModelCollation>1037,CS</ModelCollation>
+    <ModelCollation>1037,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -23,7 +23,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <DefaultCollation>Hebrew_BIN</DefaultCollation>
+    <DefaultCollation>Hebrew_CI_AI</DefaultCollation>
     <TargetDatabase>DataCenter</TargetDatabase>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -186,12 +186,24 @@
     <Build Include="05_Production\01_EXTR.ALINE\01_Tables\EXTR.ALINE.sql" />
   </ItemGroup>
   <ItemGroup>
+    <SqlCmdVariable Include="DataCenterServer">
+      <DefaultValue>IT-DEV-01\DataCenter</DefaultValue>
+      <Value>$(SqlCmdVar__7)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="ETL_Server">
+      <DefaultValue>IT-DEV-01\DataCenter</DefaultValue>
+      <Value>$(SqlCmdVar__5)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="ETL_Database">
+      <DefaultValue>ETL</DefaultValue>
+      <Value>$(SqlCmdVar__6)</Value>
+    </SqlCmdVariable>
     <SqlCmdVariable Include="PriorityDatabase">
       <DefaultValue>cele</DefaultValue>
       <Value>$(SqlCmdVar__2)</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="PriorityServer">
-      <DefaultValue>Priority</DefaultValue>
+      <DefaultValue>APC-DB1\TEST</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="RedeployJobs">
@@ -201,6 +213,10 @@
     <SqlCmdVariable Include="TargetDatabase">
       <DefaultValue>DataCenter</DefaultValue>
       <Value>$(SqlCmdVar__4)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DataCenterDatabase">
+      <DefaultValue>DataCenter</DefaultValue>
+      <Value>$(SqlCmdVar__8)</Value>
     </SqlCmdVariable>
   </ItemGroup>
   <ItemGroup>

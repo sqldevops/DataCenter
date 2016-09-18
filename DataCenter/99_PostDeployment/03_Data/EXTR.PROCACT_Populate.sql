@@ -15,7 +15,7 @@ SELECT 							RowEffectiveDate	,
 								ACT					,
 								POS					,
 								ActPos			
-FROM ETL.EXTR.PROCACT;
+FROM [$(ETL_Server)].[$(ETL_Database)].EXTR.PROCACT;
 GO
 ENABLE TRIGGER EXTR.PROCACT_AfterUpdateTrigger ON EXTR.PROCACT;
 GO
